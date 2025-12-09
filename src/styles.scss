@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --azul-escuro-1: #2B5A8E;
+    --branco: #FFFFFF
+}
+
+@font-face {
+    font-family: 'Font Hero'; 
+    src: url('assets/fonts/Hero-Regular.ttf') format('truetype'),
+         url('assets/fonts/Hero-Bold.ttf') format('truetype'),
+         url('assets/fonts/Hero-Light.ttf') format('truetype');
+    font-weight: normal; 
+    font-style: normal;
+    font-display: swap; 
+}
+
+body {
+    margin: 0;
+    // margin-left: 40px;
+    // margin-right: 40px;
+    padding: 0;
+    background-color: var(--azul-escuro-1);
+    color: var(--branco);
+    font-family: 'Font Hero' !important;
+
+}
