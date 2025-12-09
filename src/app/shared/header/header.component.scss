@@ -1,0 +1,54 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 48px;
+    background-color: var(--azul-escuro-1);
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 23px;
+
+    .logo-title {
+        font-size: 32px;
+        font-weight: bold;
+        position: absolute;
+        left: 82px;
+        top: 20px;
+    }
+
+    img {
+        margin-top: -32px;
+        position: absolute;
+    }
+}
+
+nav {
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        li:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.btn-fazerLogin {
+    border-radius: 0;
+    padding: 30px;
+    position: absolute;
+    right: 26px;
+    top: 10px;
+    color: var(--azul-escuro-1) !important;
+    padding-left: 40px;
+    padding-right: 40px;
+}
