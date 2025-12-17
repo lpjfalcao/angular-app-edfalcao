@@ -9,8 +9,8 @@
             menu
         </span>
     </div>
-
 </header>
+
 <header class="header-2">
     <div>
         <nav>
@@ -27,6 +27,13 @@
                         palette
                     </span>
                     <a routerLink="/about">Obras</a>
+                    <div class="hover-border"></div>
+                </li>
+                <li #itemLista (click)="active($event)">
+                    <span class="material-symbols-outlined menu-icon">
+                        trophy
+                    </span>
+                    <a routerLink="/premiacoes">Premiações</a>
                     <div class="hover-border"></div>
                 </li>
                 <li #itemLista (click)="active($event)">
