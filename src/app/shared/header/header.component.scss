@@ -48,3 +48,13 @@ header {
 
 
 
+/* Mobile Styles */
+@media screen and (max-width: 1064px) {
+    .menu-mobile-section {
+        display: block;
+    }
+
+    .header-2 {
+        display: none;
+    }
+}
