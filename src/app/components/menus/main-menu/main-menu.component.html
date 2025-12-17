@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <li *ngFor="let menuItem of menuItems" #itemLista (click)="active($event)"
+            [class.menu-active]="menuItem.active">
+            <span class="material-symbols-outlined menu-icon">
+                {{ menuItem.icon}}
+            </span>
+            <a [routerLink]="menuItem.url" [class.active-link]="menuItem.active">{{ menuItem.title }}</a>
+            <div class="hover-border" [class.hover-border-active]="menuItem.active"></div>
+        </li>
+    </ul>
+</nav>
+
+<div class="login-container">
+    <span class="material-symbols-outlined  u-size-32 u-marginTop-minus-4">
+        account_circle
+    </span>
+</div>

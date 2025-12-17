@@ -12,52 +12,5 @@
 </header>
 
 <header class="header-2">
-    <div>
-        <nav>
-            <ul>
-                <li #itemLista (click)="active($event)" class="menu-active">
-                    <span class="material-symbols-outlined menu-icon">
-                        home
-                    </span>
-                    <a routerLink="/">Home</a>
-                    <div class="hover-border"></div>
-                </li>
-                <li #itemLista (click)="active($event)">
-                    <span class="material-symbols-outlined menu-icon">
-                        palette
-                    </span>
-                    <a routerLink="/about">Obras</a>
-                    <div class="hover-border"></div>
-                </li>
-                <li #itemLista (click)="active($event)">
-                    <span class="material-symbols-outlined menu-icon">
-                        trophy
-                    </span>
-                    <a routerLink="/premiacoes">Premiações</a>
-                    <div class="hover-border"></div>
-                </li>
-                <li #itemLista (click)="active($event)">
-                    <span class="material-symbols-outlined menu-icon">
-                        calendar_month
-                    </span>
-                    <a routerLink="/about">Eventos</a>
-                    <div class="hover-border"></div>
-                </li>
-                <li #itemLista (click)="active($event)">
-                    <span class="material-symbols-outlined menu-icon">
-                        person_book
-                    </span>
-                    <a routerLink="/about">Biografia</a>
-                    <div class="hover-border"></div>
-                </li>
-                <li #itemLista (click)="active($event)">
-                    <span class="material-symbols-outlined menu-icon">
-                        call
-                    </span>
-                    <a routerLink="/contact">Contato</a>
-                    <div class="hover-border"></div>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <main-menu></main-menu>
 </header>
