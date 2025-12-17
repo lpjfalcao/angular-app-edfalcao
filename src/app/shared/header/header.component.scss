@@ -15,51 +15,67 @@ header {
         position: absolute;
         left: 82px;
         top: 20px;
+        color: var(--branco);
     }
 
     img {
         margin-top: -32px;
         position: absolute;
     }
-}
 
-nav {
-    ul {
-        margin-top: 0;
-        margin-bottom: 0;
+    .menu-mobile-section {
+        margin-right: 27px;
+    }
 
-        li {
-            display: inline-block;
-            margin-left: 20px;
-            margin-right: 20px;
-            cursor: pointer;
-            transition: color 0.3s;
-            font-weight: bold;
-        }
+    .menu-mobile-section:hover {
+        cursor: pointer;
+    }
 
-        li:hover {
-            color: var(--azul-escuro-2);
-           .hover-border {
-                width: 100%;
+    nav {
+        ul {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            li {
+                display: inline-block;
+                margin-left: 20px;
+                margin-right: 20px;
+                cursor: pointer;
+                transition: color 0.3s;
+                font-weight: bold;
+                color: var(--gelo-2);
+
+                .menu-icon {
+                    vertical-align: -6px;
+                    padding-right: 4px;
+                }
+
+                .hover-border {
+                    border-bottom: 3px solid var(--azul-escuro-2);
+                    padding-bottom: 20px;
+                    width: 0;
+                    transition: width 0.3s;
+                }
+
+                .hover-border-active {
+                    width: 100% !important;
+                    opacity: 1;
+                }
+            }
+
+            li:hover {
+                color: var(--azul-escuro-2);
+
+                .hover-border {
+                    width: 100%;
+                }
             }
         }
     }
 }
 
-.btn-fazerLogin {
-    border-radius: 0;
-    padding: 30px;
-    position: absolute;
-    right: 26px;
-    top: 10px;
-    color: var(--azul-escuro-1) !important;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
 .header-2 {
     background: var(--branco);
-    color: var(--preto);
     border-bottom: 1px solid silver;
 
     ul {
@@ -67,9 +83,17 @@ nav {
     }
 }
 
-.hover-border {
-    border-bottom: 3px solid var(--azul-escuro-1);
-    padding-bottom: 20px;
-    width: 0;
-    transition: width 0.3s;
+.menu-active {
+    color: var(--azul-escuro-2) !important;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .menu-section {
+        display: block;
+    }
+
+    .header-2 {
+        display: none;
+    }
 }

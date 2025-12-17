@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
 :root {
     --azul-escuro-1: #2B5A8E;
     --azul-escuro-2: #0069B2;
     --branco: #FFFFFF;
     --preto: #000000;
     --gelo: #F0F2F4;
+    --gelo-2: #778698;
 }
 
 @font-face {
@@ -19,8 +22,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--gelo);
-    color: var(--branco);
+    background-color: var(--gelo);   
     font-family: 'Font Hero' !important;
 
 }
+
+/* utilitários */
+.u-hide {
+    display: none;
+}
+
