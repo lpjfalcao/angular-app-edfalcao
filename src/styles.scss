@@ -1,6 +1,9 @@
 :root {
     --azul-escuro-1: #2B5A8E;
-    --branco: #FFFFFF
+    --azul-escuro-2: #0069B2;
+    --branco: #FFFFFF;
+    --preto: #000000;
+    --gelo: #F0F2F4;
 }
 
 @font-face {
@@ -15,10 +18,8 @@
 
 body {
     margin: 0;
-    // margin-left: 40px;
-    // margin-right: 40px;
     padding: 0;
-    background-color: var(--azul-escuro-1);
+    background-color: var(--gelo);
     color: var(--branco);
     font-family: 'Font Hero' !important;
 
