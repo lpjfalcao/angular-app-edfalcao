@@ -5,11 +5,13 @@ import { MainMenuComponent } from '../../components/menus/main-menu/main-menu.co
 import { MobileMenuComponent } from '../../components/menus/mobile-menu/mobile-menu.component';
 import { ClickOutsideDirective } from '../../directives/clickOutside.directive';
 import { MobileMenuService } from '../../components/menus/mobile-menu/mobile-menu.service';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MainMenuComponent, MobileMenuComponent, ClickOutsideDirective],
+  imports: [MatButtonModule, MatIconModule, MainMenuComponent, MobileMenuComponent, ClickOutsideDirective, MatButtonModule, MatDialogModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

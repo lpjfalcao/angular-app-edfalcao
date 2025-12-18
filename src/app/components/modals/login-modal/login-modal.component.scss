@@ -1,0 +1,76 @@
+ .cabecalho-container {
+     width: 100%;
+     text-align: center;
+     padding-top: 30px;
+     padding-bottom: 30px;
+ }
+
+ .campos-container {
+     width: 100%;
+     margin-bottom: 15px;
+
+     input {
+         width: 90%;
+         height: 40px;
+         border: none;
+         background: transparent;
+         color: var(--gelo-2);
+         padding-left: 30px;
+         border-bottom: solid 2px silver;
+         transition: border-bottom-color 0.3s;
+         font-size: 16px;
+     }
+
+     input:focus {
+         outline: none;
+         border-bottom-color: var(--azul-escuro-2);
+     }
+
+     .icon-field {
+         display: inline-block;
+         position: relative;
+         top: -35px;
+         color: var(--gelo-2);
+     }
+
+     .active {
+         color: var(--azul-escuro-2) !important;
+     }
+ }
+
+ .esqueci-senha {
+     button {
+         float: right;
+         margin-top: -38px;
+         position: relative;
+         left: 15px;
+     }
+ }
+
+ .btn-login-container {
+     margin-top: 40px;
+
+     button {
+         width: 100%;
+         background: linear-gradient(180deg, #007bd1 0%, #0069b2 100%);
+         color: white;
+         border: none;
+         padding: 12px 24px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: transform 0.2s, box-shadow 0.2s;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+     }
+ }
+
+ h3,
+ input,
+ label,
+ button {
+     font-family: 'Font Hero' !important;
+ }
+
+ ::ng-deep mat-dialog-content {
+     padding: 0px 50px 0px 50px !important;
+ }

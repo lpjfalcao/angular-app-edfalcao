@@ -1,0 +1,34 @@
+<div class="cabecalho-container">
+    <h3 class="u-bold">Login</h3>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <div class="campos-container">
+        <label for="usuario" class="u-bold u-w-100">Usuário</label><br />
+        <input type="text" placeholder="Informe o seu usuário" (focus)="active($event)" (blur)="off($event)" (input)="active($event)" [class.active]="fieldOnFocusUser" id="fieldOnFocusUser" />
+        <span tabindex="0" class="material-symbols-outlined icon-field" [class.active]="fieldOnFocusUser">
+            person
+        </span>
+    </div>
+
+    <div class="campos-container">
+        <label for="senha" class="u-bold u-w-100">Senha</label><br />
+        <input type="password" placeholder="Informe a sua senha" (focus)="active($event)" (blur)="off($event)" (input)="active($event)" [class.active]="fieldOnFocusPassword" id="fieldOnFocusPassword" />
+        <span tabindex="0" class="material-symbols-outlined icon-field" [class.active]="fieldOnFocusPassword">
+            lock
+        </span>
+    </div>
+
+    <div class="esqueci-senha">
+        <button mat-button>Esqueci a senha</button>    
+    </div>
+
+    <div class="btn-login-container">
+          <button mat-raised-button color="primary">ENTRAR</button>
+    </div>
+</mat-dialog-content>
+
+<!-- <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->

@@ -19,13 +19,22 @@
     font-display: swap; 
 }
 
+// @font-face {
+//     font-family: 'Font Hero'; 
+//     src: url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Regular.ttf') format('truetype'),
+//          url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Bold.ttf') format('truetype'),
+//          url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Light.ttf') format('truetype');
+//     font-weight: normal; 
+//     font-style: normal;
+//     font-display: swap; 
+// }
+
+
 body {
     margin: 0;
     padding: 0;
     background-color:  var(--gelo);   
     font-family: 'Font Hero' !important;
-
-
 }
 
 /* utilitários */
@@ -50,6 +59,9 @@ body {
 }
 
 .u-bold {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
+.u-w-100 {
+    width: 100%;
+}

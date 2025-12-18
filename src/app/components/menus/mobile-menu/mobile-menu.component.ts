@@ -1,18 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MobileMenuService } from './mobile-menu.service';
 import { MatListModule } from '@angular/material/list';
 import { MenuMobileViewModel } from '../../../viewModels/menuMobile.viewModel';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LoginModalComponent } from '../../modals/login-modal/login-modal.component';
 
 @Component({
   selector: 'mobile-menu',
   standalone: true,
-  imports: [MatListModule, CommonModule],
+  imports: [MatListModule, CommonModule, MatButtonModule, MatDialogModule, LoginModalComponent],
   templateUrl: './mobile-menu.component.html',
   styleUrl: './mobile-menu.component.scss'
 })
 export class MobileMenuComponent {
   @Input() menuItems: MenuMobileViewModel[] = [];
+  
+  readonly dialog = inject(MatDialog);
 
   constructor(public mobileMenuService: MobileMenuService) { }
 
@@ -34,4 +39,17 @@ export class MobileMenuComponent {
       { title: 'Contato', url: '/contato' }
     ];
   }
+
+   openDialog() {
+      const dialogRef = this.dialog.open(LoginModalComponent, {
+        minWidth: '400px',
+        minHeight: '600px'
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+
+      this.mobileMenuService.closeMenuMobile();
+    }
 }

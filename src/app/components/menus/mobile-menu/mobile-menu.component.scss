@@ -4,7 +4,7 @@
     width: 400px;
     background-color: var(--branco);
     top: 0;
-    left: 0; //-400px;
+    left: -400px;
     transition: left 0.3s;
 
     .menu-mobile-grid {
@@ -44,11 +44,27 @@
     .menu-mobile-list {
         button {
             padding-left: 53px;
-            padding-right: 53px;            
+            padding-right: 53px;
         }
 
         .menu-mobile-container-icon {
             float: right;
+        }
+    }
+
+    .btn-login-container {
+        text-align: center;
+        padding-top: 74px;
+
+        button {
+            width: 155px;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: var(--azul-escuro-2);
         }
     }
 }

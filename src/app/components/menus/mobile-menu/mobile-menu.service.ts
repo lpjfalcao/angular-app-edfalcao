@@ -4,6 +4,9 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class MobileMenuService {
+    constructor() {
+
+    }
     public openMenuMobile() {
         const menuMobile = document.querySelector('.menu-mobile-container') as HTMLElement;
         menuMobile.style.left = '0';
@@ -11,6 +14,6 @@ export class MobileMenuService {
 
     public closeMenuMobile() {
         const menuMobile = document.querySelector('.menu-mobile-container') as HTMLElement;
-        menuMobile.style.left = '-400px';
+        menuMobile.style.left = '-400px';        
     }
 }

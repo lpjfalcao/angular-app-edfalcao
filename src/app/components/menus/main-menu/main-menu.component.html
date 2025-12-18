@@ -12,7 +12,26 @@
 </nav>
 
 <div class="login-container">
-    <span class="material-symbols-outlined  u-size-32 u-marginTop-minus-4">
-        account_circle
-    </span>
+    <button matButton (click)="openDialog()" class="btn-login">
+        <span class="material-symbols-outlined  u-size-32 u-marginTop-minus-4">
+            account_circle
+        </span>
+        <span class="label-login">ENTRAR</span>
+    </button>
+
 </div>
+
+<mat-menu #menu="matMenu">
+    <div class="menu-suspenso-cabecalho">
+        <h3>Login</h3>
+    </div>
+
+    <div class="menu-suspenso-campos">
+        <mat-form-field appearance="fill">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </div>
+</mat-menu>

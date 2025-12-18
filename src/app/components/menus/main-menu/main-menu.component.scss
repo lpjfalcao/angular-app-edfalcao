@@ -10,7 +10,7 @@
              cursor: pointer;
              transition: color 0.3s;
              font-weight: bold;
-             color: var(--gelo-2);             
+             color: var(--gelo-2);
 
              .menu-icon {
                  vertical-align: -6px;
@@ -31,14 +31,14 @@
              }
 
              a {
-                  color: var(--gelo-2);
-                  transition: color 0.3s;
-                  text-decoration: none;
+                 color: var(--gelo-2);
+                 transition: color 0.3s;
+                 text-decoration: none;
              }
 
              a:hover {
-                color: var(--azul-escuro-2);
-                text-decoration: none;
+                 color: var(--azul-escuro-2);
+                 text-decoration: none;
              }
          }
 
@@ -72,7 +72,25 @@
  }
 
  .active-link:link {
-    color: var(--azul-escuro-2) !important;
+     color: var(--azul-escuro-2) !important;
  }
 
- 
+ .btn-login {
+     background: transparent;
+     border: none;
+     color: var(--gelo-2);
+     cursor: pointer;
+     transition: color 0.3s;
+ }
+
+ .btn-login:hover {
+     color: var(--azul-escuro-2);
+ }
+
+ .label-login {
+     margin-left: 5px;
+     font-weight: bold;
+     font-size: 16px;
+     vertical-align: 10px;
+     font-family: 'Font Hero' !important;
+ }
