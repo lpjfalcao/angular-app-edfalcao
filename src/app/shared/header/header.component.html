@@ -4,7 +4,7 @@
         <span class="logo-title">Ed Falcão</span>
     </div>
 
-    <div class="menu-mobile-section u-hide">
+    <div class="menu-mobile-section u-hide" id="menuMobile" (click)="mobileMenuService.openMenuMobile()" #btnToggle>
         <span class="material-symbols-outlined">
             menu
         </span>
@@ -14,3 +14,8 @@
 <header class="header-2">
     <main-menu></main-menu>
 </header>
+
+
+<div (clickOutside)="mobileMenuService.closeMenuMobile()" [excludeElement]="btnToggle">
+    <mobile-menu></mobile-menu>
+</div>

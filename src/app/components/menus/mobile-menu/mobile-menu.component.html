@@ -1,0 +1,66 @@
+<div class="menu-mobile-container">
+    <div class="menu-mobile-grid">
+        <div>
+            <img src="/img/falcao.png" />
+            <span class="logo-title">Ed Falcão</span>
+        </div>
+        <div>
+            <span class="material-symbols-outlined close-icon" (click)="mobileMenuService.closeMenuMobile()">
+                close
+            </span>
+        </div>
+    </div>
+
+    <div class="menu-mobile-list">
+        <mat-action-list>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Home</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Obras</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Premiações</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Eventos</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Biografia</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+            <button mat-list-item (click)="action('save')">
+                <span class="u-bold">Contato</span>
+                <div class="menu-mobile-container-icon">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </div>
+            </button>
+        </mat-action-list>
+    </div>
+</div>

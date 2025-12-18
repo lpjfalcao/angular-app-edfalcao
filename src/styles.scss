@@ -22,8 +22,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--gelo);   
+    background-color:  var(--gelo);   
     font-family: 'Font Hero' !important;
+
 
 }
 
@@ -46,5 +47,9 @@ body {
 
 .u-azul-escuro-2 {
     color: var(--azul-escuro-2);
+}
+
+.u-bold {
+    font-weight: bold;
 }
 

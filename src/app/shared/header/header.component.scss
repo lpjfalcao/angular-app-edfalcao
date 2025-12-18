@@ -30,6 +30,14 @@ header {
     .menu-mobile-section {
         color: var(--branco);
         margin-right: 56px;
+
+        span {
+            transition: color 0.3s;
+        }
+
+        span:hover {
+            color: var(--gelo);
+        }
     }
 
     .menu-mobile-section:hover {
