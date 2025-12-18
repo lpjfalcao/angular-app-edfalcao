@@ -13,54 +13,14 @@
 
     <div class="menu-mobile-list">
         <mat-action-list>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Home</span>
+            <button mat-list-item (click)="action(menuItem.url)" *ngFor="let menuItem of menuItems">
+                <span class="u-bold">{{ menuItem.title }}</span>
                 <div class="menu-mobile-container-icon">
                     <span class="material-symbols-outlined">
                         chevron_right
                     </span>
                 </div>
-            </button>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Obras</span>
-                <div class="menu-mobile-container-icon">
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </div>
-            </button>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Premiações</span>
-                <div class="menu-mobile-container-icon">
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </div>
-            </button>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Eventos</span>
-                <div class="menu-mobile-container-icon">
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </div>
-            </button>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Biografia</span>
-                <div class="menu-mobile-container-icon">
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </div>
-            </button>
-            <button mat-list-item (click)="action('save')">
-                <span class="u-bold">Contato</span>
-                <div class="menu-mobile-container-icon">
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </div>
-            </button>
+            </button>          
         </mat-action-list>
     </div>
 </div>
