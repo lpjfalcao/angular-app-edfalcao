@@ -1,1 +1,5 @@
-<carousel></carousel>
+<section class="carousel">
+    <h3>Destaques</h3>
+    <p>{{ carouselText }}</p> 
+    <carousel [carouselItems]="carouselItems" (onSetCarouselText)="setCarouselText($event)"></carousel>
+</section>
