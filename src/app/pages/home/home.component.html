@@ -4,7 +4,11 @@
     <carousel [carouselItems]="carouselItems" (onSetCarouselText)="setCarouselText($event)"></carousel>
 </section>
 
-<section class="about">
+<section class="show-on-small hide-on-large">
+    <mobile-carousel></mobile-carousel>
+</section>
+
+<section class="about u-top-radius">
     <div class="hide-on-small">
         <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/edfalcao-ao-lado-quadro-exu.png" />
     </div>
@@ -24,6 +28,63 @@
 
         <div class="button-container">
             <button mat-button>Biografia Completa</button>
+        </div>
+    </div>
+</section>
+
+<section class="obras u-top-radius">
+    <h3>Principais <span class="u-dourado">Obras</span></h3>
+    <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a força, a
+        espiritualidade
+        e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
+    <div class="obras-grid">
+        <div>
+            <mat-card class="example-card" appearance="outlined">
+                <img mat-card-image
+                    src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/principais+obras/obra-p-0.jpg" />
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <div>
+            <mat-card class="example-card" appearance="outlined">
+                <img mat-card-image
+                    src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/principais+obras/obra-p-1.jpg" />
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <div>
+            <mat-card class="example-card" appearance="outlined">
+                <img mat-card-image
+                    src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/principais+obras/obra-p-2.jpg" />
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <div>
+            <mat-card class="example-card" appearance="outlined">
+                <img mat-card-image
+                    src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/principais+obras/obra-p-3.jpg" />
+                <mat-card-content>
+                    <p>
+
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 </section>

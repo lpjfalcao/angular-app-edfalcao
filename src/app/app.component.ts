@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './shared/header/header.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselComponent } from './components/carousels/3d-carousel/carousel.component';
 
 @Component({
   selector: 'app-root',

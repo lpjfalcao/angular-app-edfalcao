@@ -12,11 +12,10 @@
 // Opcional: Efeito de clique (Waves)
 @import "../node_modules/materialize-css/sass/components/waves";
 
-
-
 :root {
     --azul-escuro-1: #2B5A8E;
     --azul-escuro-2: #0069B2;
+    --azul-escuro-3: #0B1F3F ;
     --branco: #FFFFFF;
     --preto: #000000;
     --gelo: #F0F2F4;
@@ -117,6 +116,11 @@ h3 {
 
 .u-pointer {
     cursor: pointer;
+}
+
+.u-top-radius {
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
 }
 
 .show-on-small {

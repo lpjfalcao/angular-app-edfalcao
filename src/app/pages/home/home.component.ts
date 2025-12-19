@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
-import { CarouselComponent } from '../../components/carousel/carousel.component';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CarouselComponent } from '../../components/carousels/3d-carousel/carousel.component';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
 import { MatButtonModule } from '@angular/material/button';
+import { MobileCarouselComponent } from '../../components/carousels/mobile-carousel/mobile-carousel.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [CarouselComponent, MatButtonModule],
+  imports: [CarouselComponent, MatButtonModule, MatCardModule, MobileCarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
+  
   carouselText: string = 'Recebendo nova confreira da Academia Brasileira de Belas Artes';
   carouselItems: CarouselViewModel[] = [
     {

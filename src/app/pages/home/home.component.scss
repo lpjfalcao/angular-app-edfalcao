@@ -1,3 +1,9 @@
+section,
+::ng-deep mat-card-title {
+    font-family: 'Font Hero', sans-serif !important;
+}
+
+
 section.carousel {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -16,25 +22,23 @@ section.carousel {
 
 section.about {
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: auto auto;
     background-color: var(--azul-escuro-2);
     color: var(--branco);
-    padding: 90px 120px 90px 120px;
+    padding: 90px 120px 120px 120px;
     justify-content: center;
     column-gap: 100px;
 
-    .container-bio {
-        padding-top: 30px;
-    }
+    .container-bio {}
 
-    p {        
-        font-size: 20px;
+    p {
+        font-size: 22px;
         font-weight: 100;
     }
 
     img {
         border-radius: 20px;
-        width: 700px;
+        width: 800px;
     }
 
     .button-container {
@@ -68,4 +72,68 @@ section.about {
             }
         }
     }
+}
+
+
+section.obras {
+    background: var(--azul-escuro-3);
+    margin-top: -42px;
+
+    h3 {
+        padding-top: 50px;
+        padding-left: 50px;
+        color: var(--branco);
+        margin-bottom: 35px;
+    }
+
+    p {
+        font-weight: 100;
+        color: var(--branco);
+        font-size: 22px;
+        padding-left: 46px;
+        width: 90%;
+    }
+
+    .obras-grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding: 60px;
+        place-items: center;
+        column-gap: 30px;
+
+        /* Mobile Styles */
+        @media screen and (max-width: 1064px) {
+            grid-template-columns: auto;
+        }
+
+
+        img {
+            height: 452px;
+            width: 100%;
+        }
+
+        ::ng-deep mat-card {
+            border: none;
+            background-image: linear-gradient(to right, var(--azul-escuro-1), var(--azul-escuro-2));
+            margin-bottom: 30px;
+        }
+
+        ::ng-deep .mat-mdc-button .mat-ripple-element,
+        ::ng-deep .mat-mdc-raised-button .mat-ripple-element {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        button {
+            color: var(--branco)
+        }
+    }
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+    background-size: cover;
 }

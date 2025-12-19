@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
+import { CarouselViewModel } from '../../../viewModels/carousel.viewModel';
 import { CommonModule } from '@angular/common';
 
 declare var M: any;
