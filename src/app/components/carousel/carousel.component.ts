@@ -22,12 +22,13 @@ export class CarouselComponent {
   configCarousel() {
     const elems = document.querySelectorAll('.carousel');
     const instances = M.Carousel.init(elems, {
-      dist: -100, // Intensidade do efeito 3D (padrão é -100)
-      shift: 0,
+      dist: -100,
+      shift: 50,
       padding: 0,
       numVisible: 5
-    });
+    });  
   }
+
 
   onClickCarousel(text: string) {
     console.log(text);

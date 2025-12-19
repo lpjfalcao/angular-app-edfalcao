@@ -14,8 +14,6 @@
 
 
 
-// Isso vai aplicar o CSS do Materialize apenas dentro do seu <app-carousel>
-
 :root {
     --azul-escuro-1: #2B5A8E;
     --azul-escuro-2: #0069B2;
@@ -23,24 +21,59 @@
     --preto: #000000;
     --gelo: #F0F2F4;
     --gelo-2: #778698;
+    --dourado: #F5A623 ;
+    --dourado-2: #FF9F1C; 
 }
 
+/* Regular */
 @font-face {
-    font-family: 'Font Hero'; 
-    src: url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Regular.ttf') format('truetype'),
-         url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Bold.ttf') format('truetype'),
-         url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Light.ttf') format('truetype');
-    font-weight: normal; 
+    font-family: 'Font Hero';
+    src: url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Regular.ttf') format('truetype');
+    font-weight: 400; /* ou normal */
     font-style: normal;
-    font-display: swap; 
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Font Hero';
+    src: url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Bold.ttf') format('truetype');
+    font-weight: 700; /* ou bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Light */
+@font-face {
+    font-family: 'Font Hero';
+    src: url('https://edfalcao-app.s3.us-east-1.amazonaws.com/fonts/Hero-Light.ttf') format('truetype');
+    font-weight: 300; /* ou light */
+    font-style: normal;
+    font-display: swap;
 }
 
 
 body {
     margin: 0;
     padding: 0;
-    background-color:  var(--gelo);   
-    font-family: 'Font Hero' !important;
+    background-color: var(--gelo);
+
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+    font-family: 'Font Hero', sans-serif !important;
+}
+
+h3 {
+    font-weight: bold !important;
 }
 
 /* utilitários */
@@ -52,16 +85,26 @@ body {
     color: var(--branco);
 }
 
+/* tamanhos utilitários */
 .u-size-32 {
     font-size: 32px;
+}
+
+.u-size-18 {
+    font-size: 18px;
 }
 
 .u-marginTop-minus-4 {
     margin-top: -4px;
 }
 
+/* cores utilitárias */
 .u-azul-escuro-2 {
     color: var(--azul-escuro-2);
+}
+
+.u-dourado {
+    color: var(--dourado);
 }
 
 .u-bold {
@@ -74,4 +117,22 @@ body {
 
 .u-pointer {
     cursor: pointer;
+}
+
+.show-on-small {
+    @media screen and (max-width: 1064px) {
+        display: block;
+    }
+}
+
+.hide-on-small {
+    @media screen and (max-width: 1064px) {
+        display: none;
+    }
+}
+
+.hide-on-large {
+    @media screen and (min-width: 1065px) {
+        display: none;
+    }
 }

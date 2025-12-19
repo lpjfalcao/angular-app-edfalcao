@@ -1,10 +1,25 @@
 /* Aumenta a altura total do container */
 .carousel {
     height: 600px !important; 
+    width: 98%;
+    margin: 0 auto;
+
+    img {
+        box-shadow: 3px 3px 10px #000;
+    }
 }
 
-/* Define o tamanho das imagens/itens */
 .carousel .carousel-item {
     width: 600px !important;
     height: 600px !important;
 }
+
+::ng-deep .indicator-item.active {
+    background-color: #F5A623 !important;
+}
+
+::ng-deep .indicator-item {
+    background-color: silver !important;
+}
+
+

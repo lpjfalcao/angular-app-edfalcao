@@ -1,5 +1,29 @@
 <section class="carousel">
     <h3>Destaques</h3>
-    <p>{{ carouselText }}</p> 
+    <p>{{ carouselText }}</p>
     <carousel [carouselItems]="carouselItems" (onSetCarouselText)="setCarouselText($event)"></carousel>
+</section>
+
+<section class="about">
+    <div class="hide-on-small">
+        <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/edfalcao-ao-lado-quadro-exu.png" />
+    </div>
+    <div class="container-bio">
+        <h3>Sobre o artista <span class="u-dourado">Ed Falcão</span></h3>
+        <div class="show-on-small hide-on-large">
+            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/edfalcao-ao-lado-quadro-exu.png" />
+        </div>
+        <p>Membro da Academia Brasileira de Belas Artes (cadeira nº 50), da Academia de Letras e Artes Paranapuã
+            (cadeira
+            nº 38) e da Academia de Letras e Artes da Mantiqueira (cadeira nº 38 – FALASP), além de membro
+            correspondente das Academias de Cabo Frio e de Búzios. Nascido no Rio de Janeiro, iniciou-se na pintura
+            influenciado por sua cultura e incentivado por familiares e pela artista plástica Janete Boaventura. Seu
+            trabalho retrata a cultura, o cotidiano e os momentos históricos do povo afrobrasileiro, em um gesto de
+            resgate e gratidão aos ancestrais que, mesmo sob dor e sofrimento, deixaram um legado de força e
+            liberdade.</p>
+
+        <div class="button-container">
+            <button mat-button>Biografia Completa</button>
+        </div>
+    </div>
 </section>

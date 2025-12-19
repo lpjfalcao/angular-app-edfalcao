@@ -34,6 +34,7 @@
                  color: var(--gelo-2);
                  transition: color 0.3s;
                  text-decoration: none;
+                 font-size: 18px;
              }
 
              a:hover {
@@ -71,7 +72,7 @@
      color: var(--azul-escuro-2) !important;
  }
 
- .active-link:link {
+ .active-link:link, .active-link:visited {
      color: var(--azul-escuro-2) !important;
  }
 

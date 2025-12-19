@@ -1,14 +1,71 @@
 section.carousel {
     padding-top: 50px;
     padding-bottom: 50px;
-    height: 500px;    
+    height: 500px;
 
-    h3, p {
+    h3,
+    p {
         text-align: center;
     }
 
     p {
         font-size: 22px;
         margin-bottom: 30px;
+    }
+}
+
+section.about {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    background-color: var(--azul-escuro-2);
+    color: var(--branco);
+    padding: 90px 120px 90px 120px;
+    justify-content: center;
+    column-gap: 100px;
+
+    .container-bio {
+        padding-top: 30px;
+    }
+
+    p {        
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+    img {
+        border-radius: 20px;
+        width: 700px;
+    }
+
+    .button-container {
+        margin-top: 42px;
+
+        button {
+            background: linear-gradient(45deg, #F5A623 10%, #D48806 90%);
+            color: var(--branco);
+            width: 200px;
+        }
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: 1064px) {
+        grid-template-columns: auto;
+        column-gap: 25px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 30px;
+
+        img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: 10px;
+
+            button {
+                width: 100%;
+            }
+        }
     }
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [CarouselComponent],
+  imports: [CarouselComponent, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
