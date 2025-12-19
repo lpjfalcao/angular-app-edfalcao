@@ -1,0 +1,10 @@
+/* Aumenta a altura total do container */
+.carousel {
+    height: 600px !important; 
+}
+
+/* Define o tamanho das imagens/itens */
+.carousel .carousel-item {
+    width: 600px !important;
+    height: 600px !important;
+}

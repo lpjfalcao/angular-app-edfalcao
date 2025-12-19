@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
+// 1. Primeiro as funções (para o Sass saber processar as cores)
+@import "../node_modules/materialize-css/sass/components/color-variables";
+
+// 2. Depois as variáveis (que usam as funções acima)
+@import "../node_modules/materialize-css/sass/components/variables";
+
+// 3. Agora os componentes específicos que você quer
+@import "../node_modules/materialize-css/sass/components/carousel";
+
+// Opcional: Efeito de clique (Waves)
+@import "../node_modules/materialize-css/sass/components/waves";
+
+
+
+// Isso vai aplicar o CSS do Materialize apenas dentro do seu <app-carousel>
+
 :root {
     --azul-escuro-1: #2B5A8E;
     --azul-escuro-2: #0069B2;
