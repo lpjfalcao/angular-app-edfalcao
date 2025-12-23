@@ -1,3 +1,5 @@
+@use '../../../variables.scss' as var;
+
 section,
 ::ng-deep mat-card-title {
     font-family: 'Font Hero', sans-serif !important;
@@ -28,9 +30,7 @@ section.about {
     color: var(--branco);
     padding: 90px 120px 120px 120px;
     justify-content: center;
-    column-gap: 100px;
-
-    .container-bio {}
+    column-gap: 50px;
 
     p {
         font-size: 22px;
@@ -39,7 +39,6 @@ section.about {
 
     img {
         border-radius: 20px;
-        width: 800px;
     }
 
     .button-container {
@@ -53,15 +52,20 @@ section.about {
     }
 
     /* Mobile Styles */
-    @media screen and (max-width: 1064px) {
-        grid-template-columns: auto;
-        column-gap: 25px;
-        padding-left: 30px;
-        padding-right: 30px;
+    @media screen and (max-width: var.$mobile-width) {
+        grid-template-columns: auto 600px;
+        column-gap: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
         padding-top: 30px;
 
+
+        p {
+            font-size: var.$font-size-20;
+        }
+
         img {
-            width: 100%;
+            width: 700px;
             margin-bottom: 20px;
         }
 
@@ -71,6 +75,18 @@ section.about {
             button {
                 width: 100%;
             }
+        }
+    }
+
+    @media screen and (max-width: var.$mobile-width-sm) {
+        grid-template-columns: auto;
+
+        h3 {
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
         }
     }
 }
@@ -92,7 +108,17 @@ section.obras {
         color: var(--branco);
         font-size: 22px;
         padding-left: 46px;
-        width: 90%;
+        text-align: left;
+    }
+
+    @media screen and (max-width: var.$mobile-width) {
+        grid-template-columns: auto;
+
+        p {
+            padding-left: 48px;
+            padding-right: 48px;
+            font-size: var.$font-size-20
+        }
     }
 
     .obras-grid {
@@ -101,12 +127,6 @@ section.obras {
         padding: 60px;
         place-items: center;
         column-gap: 30px;
-
-        /* Mobile Styles */
-        @media screen and (max-width: 1064px) {
-            grid-template-columns: auto;
-        }
-
 
         img {
             height: 452px;
@@ -126,6 +146,23 @@ section.obras {
 
         button {
             color: var(--branco)
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: var.$mobile-width) {
+            grid-template-columns: auto auto auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            gap: 30px;
+        }
+
+        @media screen and (max-width: var.$mobile-width-sm) {
+            grid-template-columns: auto auto;
+            gap: 20px;
+        }
+
+        @media screen and (max-width: var.$mobile-width-xsm) {
+            grid-template-columns: auto;
         }
     }
 }
