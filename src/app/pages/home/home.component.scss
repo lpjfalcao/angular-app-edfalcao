@@ -10,7 +10,7 @@ section.carousel {
     padding-top: 50px;
     padding-bottom: 75px;
     height: 500px;
-    color: var(--branco);
+    color: var(--preto);
 
     h3,
     p {
@@ -145,7 +145,12 @@ section.obras {
         }
 
         button {
-            color: var(--branco)
+            color: var(--branco);
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.2);
         }
 
         /* Mobile Styles */

@@ -18,7 +18,7 @@
              }
 
              .hover-border {
-            //     border-bottom: 3px solid var(--azul-escuro-2);
+                 border-bottom: 3px solid var(--azul-escuro-2);
                  padding-bottom: 20px;
                  width: 0;
                  transition: width 0.3s;
@@ -48,6 +48,14 @@
 
              .hover-border {
                  width: 100%;
+             }
+
+             .menu-icon {
+                color: var(--azul-escuro-2);
+             }
+
+             a {
+                color: var(--azul-escuro-2);
              }
          }
      }
