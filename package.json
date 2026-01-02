@@ -25,13 +25,15 @@
     "@coreui/icons-angular": "~5.2.25",
     "@popperjs/core": "~2.11.8",
     "bootstrap": "^5.3.8",
+    "masonry-layout": "^4.2.2",
     "materialize-css": "^1.0.0-rc.2",
+    "ngx-masonry": "^14.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.11",
+    "@angular-devkit/build-angular": "^18.2.21",
     "@angular/cli": "^18.2.11",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",

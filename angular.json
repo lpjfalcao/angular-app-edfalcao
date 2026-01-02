@@ -36,7 +36,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/materialize-css/dist/js/materialize.min.js"
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "node_modules/masonry-layout/dist/masonry.pkgd.min.js"
             ]
           },
           "configurations": {

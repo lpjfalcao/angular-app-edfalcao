@@ -37,7 +37,10 @@
     <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a força, a
         espiritualidade
         e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
-   
-        <grid-gallery [tiles]="obrasPrincipais"        
-            (onSelectImage)="quandoUsuarioSelecionarItemNaGrid($event)"></grid-gallery>
+
+    <ngx-masonry #masonry [options]="{ gutter: 0, percentPosition: true }">
+        <div ngxMasonryItem class="masonry-item" *ngFor="let item of carouselItems" [ngClass]="item.tipo">
+            <img [src]="item.imageUrl" (load)="masonry.layout()">
+        </div>
+    </ngx-masonry>
 </section>

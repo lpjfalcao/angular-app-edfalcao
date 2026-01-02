@@ -6,11 +6,13 @@ import { MobileCarouselComponent } from '../../components/carousels/mobile-carou
 import { MatCardModule } from '@angular/material/card';
 import { Tile } from '../../interfaces/tile.interface';
 import { GridGalleryComponent } from '../../shared/grid-gallery/grid-gallery.component';
+import { NgxMasonryComponent, NgxMasonryModule } from 'ngx-masonry';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [CarouselComponent, MatButtonModule, MatCardModule, MobileCarouselComponent, GridGalleryComponent],
+  imports: [CarouselComponent, MatButtonModule, MatCardModule, MobileCarouselComponent, NgxMasonryModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -27,34 +29,125 @@ export class HomeComponent {
 
   @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
 
+  @ViewChild('masonry') masonry?: NgxMasonryComponent;
+
   carouselText: string = 'Recebendo nova confreira da Academia Brasileira de Belas Artes';
   carouselItems: CarouselViewModel[] = [
     {
       title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg'
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+      tipo: 'ratio-portrait'
     },
     {
       title: 'Tributo ao dia da Consciência Negra no CBMERJ',
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg'
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+      tipo: 'ratio-square'
     },
     {
       title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg'
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+      tipo: 'ratio-square'
     },
     {
       title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg'
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+      tipo: 'ratio-tall'
     },
     {
       title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg'
-    }
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+      tipo: 'ratio-tall'
+    },
+
+        {
+      title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+      tipo: 'ratio-portrait'
+    },
+    {
+      title: 'Tributo ao dia da Consciência Negra no CBMERJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+      tipo: 'ratio-tall'
+    },
+    {
+      title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+      tipo: 'ratio-tall'
+    },
+        {
+      title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+      tipo: 'ratio-portrait'
+    },
+    {
+      title: 'Tributo ao dia da Consciência Negra no CBMERJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+      tipo: 'ratio-tall'
+    },
+    {
+      title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+      tipo: 'ratio-tall'
+    },
+        {
+      title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+      tipo: 'ratio-portrait'
+    },
+    {
+      title: 'Tributo ao dia da Consciência Negra no CBMERJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+      tipo: 'ratio-square'
+    },
+    {
+      title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+      tipo: 'ratio-tall'
+    },
+    {
+      title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
+      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+      tipo: 'ratio-tall'
+    },
+
+  
+  ];
+
+   masonryItems = [
+    { title: 'item 1' },
+    { title: 'item 2' },
+    { title: 'item 3' },
   ];
 
   obrasPrincipais: Tile[] = [];
 
   ngOnInit() {
-    this.height = '120px';
+    this.height = 'auto';
     this.width = '100%';
     this.cols = 1;
     this.rows = 1;
@@ -71,7 +164,7 @@ export class HomeComponent {
           width: this.width,
           cols: this.cols,
           rows: this.rows,
-          isLoading: true,
+          isLoading: false,
           color: ''
         });
       }
@@ -101,5 +194,9 @@ export class HomeComponent {
 
   quandoUsuarioSelecionarItemNaGrid(event: any) {
     console.log(`Evento acionado: ${event}`);
+  }
+
+  reloadLayout() {
+    this.masonry?.layout();
   }
 }

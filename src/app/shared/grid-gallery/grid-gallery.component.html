@@ -1,6 +1,6 @@
 <section class="grid-container">
     <!-- Todas -->
-    <mat-grid-list cols="3" rowHeight="120px">
+    <mat-grid-list cols="4" rowHeight="300px">
         <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="white"
             matRipple [matRippleColor]="colorRipple" (click)="quandoUsuarioSelecionarImagemNaGrid(tile)">
 
