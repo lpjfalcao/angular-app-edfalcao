@@ -1,0 +1,17 @@
+<section class="grid-container">
+    <!-- Todas -->
+    <mat-grid-list cols="3" rowHeight="120px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="white"
+            matRipple [matRippleColor]="colorRipple" (click)="quandoUsuarioSelecionarImagemNaGrid(tile)">
+
+            <div class="lds-facebook" *ngIf="tile.isLoading">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <img class="image-grid image-loading" [src]="tile.image"
+                [ngStyle]="{'height' : tile.height, 'width' : tile.width }" [hidden]="tile.isLoading" />
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</section>
