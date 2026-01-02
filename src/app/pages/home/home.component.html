@@ -1,7 +1,7 @@
 <section class="carousel">
     <h3>Destaques</h3>
     <p>{{ carouselText }}</p>
-    <carousel [carouselItems]="carouselItems" (onSetCarouselText)="setCarouselText($event)"></carousel>
+    <carousel [carouselItems]="carouselViewModel" (onSetCarouselText)="setCarouselText($event)"></carousel>
 </section>
 
 <section class="show-on-small hide-on-large">
@@ -15,16 +15,9 @@
     <div class="container-bio">
         <h3>Sobre o artista <span class="u-dourado line-break">Ed Falcão</span></h3>
         <div class="show-on-small hide-on-large">
-            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/edfalcao-ao-lado-quadro-exu.png" />
+            <img [src]="sobreViewModel.imageUrl" />
         </div>
-        <p>Membro da Academia Brasileira de Belas Artes (cadeira nº 50), da Academia de Letras e Artes Paranapuã
-            (cadeira
-            nº 38) e da Academia de Letras e Artes da Mantiqueira (cadeira nº 38 – FALASP), além de membro
-            correspondente das Academias de Cabo Frio e de Búzios. Nascido no Rio de Janeiro, iniciou-se na pintura
-            influenciado por sua cultura e incentivado por familiares e pela artista plástica Janete Boaventura. Seu
-            trabalho retrata a cultura, o cotidiano e os momentos históricos do povo afrobrasileiro, em um gesto de
-            resgate e gratidão aos ancestrais que, mesmo sob dor e sofrimento, deixaram um legado de força e
-            liberdade.</p>
+        <p>{{ sobreViewModel.bio }}</p>
 
         <div class="button-container">
             <button mat-button>Biografia Completa</button>
@@ -38,9 +31,5 @@
         espiritualidade
         e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
 
-    <ngx-masonry #masonry [options]="{ gutter: 0, percentPosition: true }">
-        <div ngxMasonryItem class="masonry-item" *ngFor="let item of carouselItems" [ngClass]="item.tipo">
-            <img [src]="item.imageUrl" (load)="masonry.layout()">
-        </div>
-    </ngx-masonry>
+   <grid-gallery [gridViewModel]="gridViewModel"></grid-gallery>
 </section>
