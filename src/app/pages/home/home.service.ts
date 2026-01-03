@@ -44,108 +44,52 @@ export class HomeService {
   }
 
   getGridItems(): GridViewModel[] {
-     this.gridViewModel = [
+    this.gridViewModel = [
       {
-        id: 1,
-        title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+        imageUrl: 'https://i.ibb.co/rvMSkrb/Santa-Teresa.jpg',
       },
       {
-        id: 2,
-        title: 'Tributo ao dia da Consciência Negra no CBMERJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+        imageUrl: 'https://i.ibb.co/C0dbXbP/Riacho-do-Amor.jpg',
       },
       {
-        id: 3,
-        title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+        imageUrl: 'https://i.ibb.co/Fq48RM0/Praia-da-Urca.jpg',
       },
       {
-        id: 4,
-        title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+        imageUrl: 'https://i.ibb.co/bR4c21v/O-Salvamento.jpg',
       },
       {
-        id: 5,
-        title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
-      },
-
-      {
-        id: 6,
-        title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+        imageUrl: 'https://i.ibb.co/gySyK4j/O-Resgate.jpg',
       },
       {
-        id: 7,
-        title: 'Tributo ao dia da Consciência Negra no CBMERJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+        imageUrl: 'https://i.ibb.co/PrDW11k/L-grimas-da-M-e-Natureza.jpg',
       },
       {
-        id: 8,
-        title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+        imageUrl: 'https://i.ibb.co/ScYPdxv/A-Socorrista.jpg',
       },
       {
-        id: 9,
-        title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+        imageUrl: 'https://i.ibb.co/f20fz3Y/Saquarema.jpg',
       },
       {
-        id: 10,
-        title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+        imageUrl: 'https://i.ibb.co/7gSfc5X/O-acad-mico.jpg',
       },
       {
-        id: 11,
-        title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+        imageUrl: 'https://i.ibb.co/44ZVStZ/Jardim-Tijucano.jpg',
       },
       {
-        id: 12,
-        title: 'Tributo ao dia da Consciência Negra no CBMERJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
+        imageUrl: 'https://i.ibb.co/DQP77s0/Borboletas-de-Macondo.jpg'
       },
       {
-        id: 13,
-        title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
+        imageUrl: 'https://image.ibb.co/bKxpum/janela_submersa.jpg'
       },
       {
-        id: 14,
-        title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
+        imageUrl: 'https://image.ibb.co/bPxRem/Natureza_de_Macondo_2.jpg'
       },
       {
-        id: 15,
-        title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
+        imageUrl: 'https://image.ibb.co/jrizzm/image.jpg'
       },
       {
-        id: 16,
-        title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg',
+        imageUrl: 'https://image.ibb.co/cvDjS6/Abraco_da_paz.jpg'
       },
-      {
-        id: 17,
-        title: 'Tributo ao dia da Consciência Negra no CBMERJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg',
-      },
-      {
-        id: 18,
-        title: 'Cerimônia de Posse na Academia Brasileira de Belas Artes com Iraci Carise',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg',
-      },
-      {
-        id: 19,
-        title: 'Academia Brasileira de Belas Artes em Búzios/RJ',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg',
-      },
-      {
-        id: 20,
-        title: 'Imortais Acadêmicos da FALASP no Rio de Janeiro',
-        imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg',
-      }
     ];
 
     return this.gridViewModel;

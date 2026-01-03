@@ -1,5 +1,5 @@
 export class GridViewModel {
-    id!: number;
+    id?: number;
     title?: string;
     imageUrl!: string;
     tipo?: string;

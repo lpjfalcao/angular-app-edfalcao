@@ -1,5 +1,9 @@
-<ngx-masonry #masonry [options]="{ gutter: 0, percentPosition: true, horizontalOrder: true, columnWidth: '.masonry-item' }">
-    <div ngxMasonryItem class="masonry-item" *ngFor="let item of gridViewModel" [ngClass]="item.tipo">
-        <img [src]="item.imageUrl">
+<div class="gallery-wrapper">
+  <ngx-masonry [options]="masonryOptions">
+    <div ngxMasonryItem class="masonry-item" *ngFor="let item of gridViewModel">
+      <div class="image-card">
+        <img [src]="item.imageUrl" alt="Gallery Image">
+      </div>
     </div>
-</ngx-masonry>
+  </ngx-masonry>
+</div>
