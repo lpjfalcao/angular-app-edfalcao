@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
-import { GridViewModel } from '../../viewModels/grid.viewModel';
 import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 })
 export class HomeService {
   carouselViewModel!: CarouselViewModel[];
-  gridViewModel!: GridViewModel[];
+  carouselPrincipaisObraViewModel!: CarouselViewModel[];
   sobreViewModel!: SobreViewModel;
 
   constructor() { }
@@ -43,8 +42,8 @@ export class HomeService {
     ];
   }
 
-  getGridItems(): GridViewModel[] {
-    this.gridViewModel = [
+  getCarouselPrincipaisObrasItems(): CarouselViewModel[] {
+    this.carouselPrincipaisObraViewModel = [
       {
         imageUrl: 'https://i.ibb.co/rvMSkrb/Santa-Teresa.jpg',
       },
@@ -92,7 +91,7 @@ export class HomeService {
       },
     ];
 
-    return this.gridViewModel;
+    return this.carouselPrincipaisObraViewModel;
   }
 
   getBioInfo(): SobreViewModel {

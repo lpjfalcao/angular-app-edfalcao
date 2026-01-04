@@ -1,4 +1,4 @@
   <div #carouselRef class="carousel">
-    <a class="carousel-item u-pointer" (click)="onClickCarousel(item.title)" *ngFor="let item of carouselItems"><img [src]="item.imageUrl"></a>
+    <a class="carousel-item u-pointer" (click)="onClickCarousel(item.title!)" *ngFor="let item of carouselItems"><img [src]="item.imageUrl"></a>
   </div>
       

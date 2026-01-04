@@ -31,16 +31,5 @@
         espiritualidade
         e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
 
-    <owl-carousel-o [options]="customOptions">
-        <ng-container *ngFor="let item of gridViewModel">
-            <ng-template class="slide" carouselSlide>
-                <img [src]="item.imageUrl">
-            </ng-template>
-        </ng-container>
-
-        <!-- <ng-template carouselSlide>Slide 1</ng-template>
-        <ng-template carouselSlide>Slide 2</ng-template>
-        <ng-template carouselSlide>Slide 3</ng-template> -->
-    </owl-carousel-o>
-
+    <owl-carousel [carouselViewModel]="carouselPrincipaisObraViewModel"></owl-carousel>
 </section>

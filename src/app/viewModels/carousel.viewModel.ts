@@ -1,5 +1,5 @@
 export class CarouselViewModel {
-    title!: string;
+    title?: string;
     imageUrl!: string;
     tipo?: string;
 }
