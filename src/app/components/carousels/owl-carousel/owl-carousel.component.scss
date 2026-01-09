@@ -1,3 +1,4 @@
+@use '../../../../variables.scss' as var;
 
 /* Usamos ::ng-deep porque o Owl Carousel gera tags HTML dinamicamente */
 :host ::ng-deep .owl-carousel .owl-item img {
@@ -57,11 +58,17 @@
 }
 
 :host ::ng-deep .material-icon {
-      vertical-align: -18px;
+    vertical-align: -18px;
     font-size: 32px;
     padding-left: 0px;
 }
 
 :host ::ng-deep .owl-stage-outer {
     border-radius: 20px !important;
+}
+
+@media screen and (max-width: var.$mobile-width) {
+    ::ng-deep .owl-carousel {
+        margin-left: 20px;
+    }
 }

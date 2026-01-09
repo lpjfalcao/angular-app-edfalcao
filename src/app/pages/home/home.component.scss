@@ -119,12 +119,26 @@ section.obras {
         margin-bottom: 35px;
     }
 
+    .button-container {
+        margin-top: 60px;
+        text-align: center;
+
+        button {
+            background: linear-gradient(45deg, #F5A623 10%, #D48806 90%);
+            color: var(--branco);
+            width: 200px;
+        }
+    }
+
     @media screen and (max-width: var.$mobile-width) {
         grid-template-columns: auto;
 
+        h3 {
+            text-align: center;
+        }
+
         p {
-            padding-left: 48px;
-            padding-right: 48px;
+            
             font-size: var.$font-size-20
         }
     }
@@ -180,11 +194,50 @@ section.obras {
     }
 }
 
-.example-card {
-    max-width: 400px;
+section.premiacoes {
+    padding: 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    color: var(--preto);
+
+    p {
+        font-weight: 100;
+        font-size: 22px;
+    }
+
+    .button-container {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            background: linear-gradient(45deg, var(--azul-escuro-2) 10%, var(--azul-escuro-1) 90%);
+            color: var(--branco);
+            width: 200px;
+        }
+    }
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+section.eventos {
+    background-color: var(--azul-escuro-3);
+    padding: 50px;
+
+    .row {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+
+    h3 {
+        color: var(--branco);
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: var.$mobile-width) {
+        border: solid 2px yellow;
+
+        .row {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }

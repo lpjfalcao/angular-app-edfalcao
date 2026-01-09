@@ -32,4 +32,39 @@
         e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
 
     <owl-carousel [carouselViewModel]="carouselPrincipaisObraViewModel"></owl-carousel>
+
+    <div class="button-container">
+        <button mat-button>Ver todas as obras</button>
+    </div>
+</section>
+
+<section class="premiacoes">
+    <h3>Premiações</h3>
+    <p>Medalhas, troféus e certificados conquistados ao longo da minha jornada</p>
+
+
+    <div class="button-container">
+        <button mat-button>Ver premiações</button>
+    </div>
+</section>
+
+<section class="eventos">
+    <h3>Eventos</h3>
+    <div class="row">
+        <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
+            <mat-card class="example-card" appearance="outlined">
+                    <img mat-card-image [src]="item.imagemUrl"
+                    alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <h5>{{ item.titulo }}</h5>
+                    <p>
+                        {{ item.descricao }}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>Leia mais</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>        
+    </div>
 </section>

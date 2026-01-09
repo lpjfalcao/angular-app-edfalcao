@@ -46,6 +46,7 @@ export class HomeComponent {
   carouselViewModel!: CarouselViewModel[];
   carouselPrincipaisObraViewModel!: CarouselViewModel[];
   sobreViewModel!: SobreViewModel;
+  eventosViewModel!: EventoViewModel[];
 
   constructor(private homeService: HomeService) {
 
@@ -54,11 +55,19 @@ export class HomeComponent {
   ngOnInit() {
     this.carouselViewModel = this.homeService.getCarouselItems();
     this.carouselPrincipaisObraViewModel = this.homeService.getCarouselPrincipaisObrasItems();
-    console.log(this.carouselPrincipaisObraViewModel);
     this.sobreViewModel = this.homeService.getBioInfo();
+    this.eventosViewModel = this.homeService.getEventos();
   }
 
   setCarouselText(event: any) {
     this.carouselText = event;
   }
+}
+
+export class EventoViewModel {
+  id!: number;
+  imagemUrl!: string;
+  titulo!: string;
+  descricao!: string;
+  link!: string;
 }

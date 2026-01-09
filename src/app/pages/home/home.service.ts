@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
 import { SobreViewModel } from '../../viewModels/sobre.viewModel';
+import { EventoViewModel } from './home.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,56 @@ export class HomeService {
   carouselViewModel!: CarouselViewModel[];
   carouselPrincipaisObraViewModel!: CarouselViewModel[];
   sobreViewModel!: SobreViewModel;
+  eventosViewModel!: EventoViewModel[];
 
   constructor() { }
+
+  getEventos(): EventoViewModel[] {
+    return this.eventosViewModel = [
+      {
+        id: 1,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      },
+      {
+        id: 2,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      },
+      {
+        id: 3,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      },
+      {
+        id: 4,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      },
+      {
+        id: 5,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      },
+      {
+        id: 6,
+        imagemUrl: 'https://material.angular.dev/assets/img/examples/shiba2.jpg',
+        titulo: 'Lorem ipsum',
+        descricao: 'teste descrição do evento vem aqui quando este dado for dinâmico será recuperado do servidor via chamada de api',
+        link: ''
+      }
+    ]
+  }
 
   getCarouselItems(): CarouselViewModel[] {
     return this.carouselViewModel = [
