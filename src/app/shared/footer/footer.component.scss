@@ -1,0 +1,38 @@
+@use '../../../variables.scss' as var;
+
+
+footer {
+    min-height: 20px;
+    height: auto;
+    background-color: var(--azul-escuro-1);
+    color: var(--branco);
+    padding: 40px;
+    padding-top: 45px;
+    font-size: 18px;
+
+    .social-media {
+        img {
+            height: 30px;
+            width: 30px;
+            filter: invert(100%);
+            margin-left: 10px;
+            float: right;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: var.$mobile-width-xsm) {
+        text-align: center;
+
+        .social-media {
+            margin-top: 20px;
+            img {
+                float: none;
+            }
+        }
+    }
+}

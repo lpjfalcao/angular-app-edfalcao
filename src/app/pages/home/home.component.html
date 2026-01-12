@@ -49,12 +49,11 @@
 </section>
 
 <section class="eventos">
-    <h3>Eventos</h3>
+    <h3><span class="u-dourado">Eventos</span></h3>
     <div class="row">
         <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
             <mat-card class="example-card" appearance="outlined">
-                    <img mat-card-image [src]="item.imagemUrl"
-                    alt="Photo of a Shiba Inu">
+                <img mat-card-image [src]="item.imagemUrl" alt="Photo of a Shiba Inu">
                 <mat-card-content>
                     <h5>{{ item.titulo }}</h5>
                     <p>
@@ -65,6 +64,11 @@
                     <button mat-button>Leia mais</button>
                 </mat-card-actions>
             </mat-card>
-        </div>        
+        </div>
     </div>
+
+
+    <div class="button-container">
+        <button mat-button>Ver mais eventos</button>
+    </div>  
 </section>

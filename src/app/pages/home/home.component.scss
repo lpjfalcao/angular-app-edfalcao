@@ -34,7 +34,7 @@ section.about {
     grid-template-columns: auto auto;
     background-color: var(--azul-escuro-2);
     color: var(--branco);
-    padding: 90px 120px 120px 120px;
+    padding: 90px 120px 90px 120px;
     justify-content: center;
     column-gap: 50px;
 
@@ -76,11 +76,8 @@ section.about {
         }
 
         .button-container {
-            margin-top: 10px;
-
-            button {
-                width: 100%;
-            }
+            margin-top: 30px;
+            text-align: center;
         }
     }
 
@@ -231,10 +228,27 @@ section.eventos {
         color: var(--branco);
     }
 
+    h5 {
+        margin-top: 20px;
+    }
+    
+    button {
+        font-family: 'Font Hero', sans-serif !important;
+    }
+
+     .button-container {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            background: linear-gradient(45deg, var(--dourado) 10%, var(--dourado-2) 90%);
+            color: var(--branco);
+            width: 200px;
+        }
+    }
+
     /* Mobile Styles */
     @media screen and (max-width: var.$mobile-width) {
-        border: solid 2px yellow;
-
         .row {
             padding-left: 0;
             padding-right: 0;

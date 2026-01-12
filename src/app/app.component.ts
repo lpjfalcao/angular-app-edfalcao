@@ -6,6 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './shared/header/header.component';
 import { CarouselComponent } from './components/carousels/3d-carousel/carousel.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,9 @@ import { CarouselComponent } from './components/carousels/3d-carousel/carousel.c
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    CarouselComponent],
+    CarouselComponent,
+    FooterComponent 
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
