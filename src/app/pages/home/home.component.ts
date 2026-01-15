@@ -12,6 +12,7 @@ import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 import { PrincipaisObrasComponent } from './principais-obras/principais-obras.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/owl-carousel.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -25,7 +26,8 @@ import { environment } from '../../../environments/environment';
     CommonModule,
     PrincipaisObrasComponent,
     CarouselModule,
-    OwlCarouselComponent],
+    OwlCarouselComponent,
+    MatProgressSpinnerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -38,7 +40,7 @@ export class HomeComponent {
   quantidade: number = 4;
   quantidadeMaximaItensDaGrid!: number;
   quantidadeMaximaItensDaGridCategoriaSelecionada!: number;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
   @ViewChild('masonry') masonry?: NgxMasonryComponent;
@@ -58,16 +60,18 @@ export class HomeComponent {
       this.carregarBiografia(homeData);
       this.carregarObrasPrincipais(homeData);
       this.carregarEventos(homeData);
+      this.isLoading = false;
+      document.querySelector('footer')?.classList.remove('u-hide');
     });
   }
 
   carregarDestaques(homeData: any) {
     for (const item of homeData.homeDestaques) {
-        this.carouselViewModel.push({
-          imageUrl: item.Destaque.ImageUrl,
-          title: item.Destaque.Title
-        });
-      }
+      this.carouselViewModel.push({
+        imageUrl: item.Destaque.ImageUrl,
+        title: item.Destaque.Title
+      });
+    }
   }
 
   carregarBiografia(homeData: any) {
