@@ -1,74 +1,75 @@
 <section class="carousel">
     <h3>Destaques</h3>
     <p>{{ carouselText }}</p>
-    <carousel [carouselItems]="carouselViewModel" (onSetCarouselText)="setCarouselText($event)"></carousel>
+    <carousel [carouselItems]="carouselViewModel" (onSetCarouselText)="setCarouselText($event)"
+        *ngIf="carouselViewModel.length > 0"></carousel>
 </section>
 
-<section class="show-on-small hide-on-large">
+<!-- <section class="show-on-small hide-on-large">
     <mobile-carousel></mobile-carousel>
-</section>
+</section> -->
 
-<section class="about u-top-radius">
-    <div class="hide-on-small">
-        <img [src]="sobreViewModel.imageUrl" />
-    </div>
-    <div class="container-bio">
-        <h3>Sobre o artista <span class="u-dourado line-break">Ed Falcão</span></h3>
-        <div class="show-on-small hide-on-large">
+    <section class="about u-top-radius">
+        <div class="hide-on-small">
             <img [src]="sobreViewModel.imageUrl" />
         </div>
-        <p>{{ sobreViewModel.bio }}</p>
+        <div class="container-bio">
+            <h3>Sobre o artista <span class="u-dourado line-break">Ed Falcão</span></h3>
+            <div class="show-on-small hide-on-large">
+                <img [src]="sobreViewModel.imageUrl" />
+            </div>
+            <p>{{ sobreViewModel.bio }}</p>
+
+            <div class="button-container">
+                <button mat-button>Biografia Completa</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="obras u-top-radius">
+        <h3>Principais <span class="u-dourado">Obras</span></h3>
+        <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a força, a
+            espiritualidade
+            e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
+
+        <owl-carousel [carouselViewModel]="carouselPrincipaisObraViewModel" *ngIf="carouselPrincipaisObraViewModel.length > 0"></owl-carousel>
 
         <div class="button-container">
-            <button mat-button>Biografia Completa</button>
+            <button mat-button>Ver todas as obras</button>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="obras u-top-radius">
-    <h3>Principais <span class="u-dourado">Obras</span></h3>
-    <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a força, a
-        espiritualidade
-        e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
-
-    <owl-carousel [carouselViewModel]="carouselPrincipaisObraViewModel"></owl-carousel>
-
-    <div class="button-container">
-        <button mat-button>Ver todas as obras</button>
-    </div>
-</section>
-
-<section class="premiacoes">
-    <h3>Premiações</h3>
-    <p>Medalhas, troféus e certificados conquistados ao longo da minha jornada</p>
+    <section class="premiacoes">
+        <h3>Premiações</h3>
+        <p>Medalhas, troféus e certificados conquistados ao longo da minha jornada</p>
 
 
-    <div class="button-container">
-        <button mat-button>Ver premiações</button>
-    </div>
-</section>
-
-<section class="eventos">
-    <h3><span class="u-dourado">Eventos</span></h3>
-    <div class="row">
-        <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
-            <mat-card class="example-card" appearance="outlined">
-                <img mat-card-image [src]="item.imagemUrl" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                    <h5>{{ item.titulo }}</h5>
-                    <p>
-                        {{ item.descricao }}
-                    </p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>Leia mais</button>
-                </mat-card-actions>
-            </mat-card>
+        <div class="button-container">
+            <button mat-button>Ver premiações</button>
         </div>
-    </div>
+    </section> 
+
+    <section class="eventos">
+        <h3><span class="u-dourado">Eventos</span></h3>
+        <div class="row">
+            <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
+                <mat-card class="example-card" appearance="outlined">
+                    <img mat-card-image [src]="item.imagemUrl" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        <h5>{{ item.titulo }}</h5>
+                        <p>
+                            {{ item.descricao }}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Leia mais</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
 
 
-    <div class="button-container">
-        <button mat-button>Ver mais eventos</button>
-    </div>  
-</section>
+        <div class="button-container">
+            <button mat-button>Ver mais eventos</button>
+        </div>  
+    </section> 

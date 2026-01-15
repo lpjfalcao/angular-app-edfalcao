@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
 import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 import { EventoViewModel } from './home.component';
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,12 @@ export class HomeService {
   sobreViewModel!: SobreViewModel;
   eventosViewModel!: EventoViewModel[];
 
-  constructor() { }
+  constructor(private apiClient: HttpClient) { }
+
+
+  getHomeData(url: string): Observable<any> {
+    return this.apiClient.get(url);    
+  }
 
   getEventos(): EventoViewModel[] {
     return this.eventosViewModel = [
@@ -62,6 +70,7 @@ export class HomeService {
   }
 
   getCarouselItems(): CarouselViewModel[] {
+
     return this.carouselViewModel = [
       {
         title: 'Recebendo nova confreira da Academia Brasileira de Belas Artes',

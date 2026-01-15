@@ -12,6 +12,7 @@ import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 import { PrincipaisObrasComponent } from './principais-obras/principais-obras.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/owl-carousel.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'home',
@@ -42,21 +43,57 @@ export class HomeComponent {
   @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
   @ViewChild('masonry') masonry?: NgxMasonryComponent;
 
-  carouselText: string = 'Recebendo nova confreira da Academia Brasileira de Belas Artes';
-  carouselViewModel!: CarouselViewModel[];
-  carouselPrincipaisObraViewModel!: CarouselViewModel[];
+  carouselText: string = '';
+  carouselViewModel: CarouselViewModel[] = [];
+  carouselPrincipaisObraViewModel: CarouselViewModel[] = [];
   sobreViewModel!: SobreViewModel;
-  eventosViewModel!: EventoViewModel[];
+  eventosViewModel: EventoViewModel[] = [];
 
   constructor(private homeService: HomeService) {
-
   }
 
   ngOnInit() {
-    this.carouselViewModel = this.homeService.getCarouselItems();
-    this.carouselPrincipaisObraViewModel = this.homeService.getCarouselPrincipaisObrasItems();
-    this.sobreViewModel = this.homeService.getBioInfo();
-    this.eventosViewModel = this.homeService.getEventos();
+    this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe((homeData: any) => {
+      this.carregarDestaques(homeData);
+      this.carregarBiografia(homeData);
+      this.carregarObrasPrincipais(homeData);
+      this.carregarEventos(homeData);
+    });
+  }
+
+  carregarDestaques(homeData: any) {
+    for (const item of homeData.homeDestaques) {
+        this.carouselViewModel.push({
+          imageUrl: item.Destaque.ImageUrl,
+          title: item.Destaque.Title
+        });
+      }
+  }
+
+  carregarBiografia(homeData: any) {
+    this.sobreViewModel = {
+      bio: homeData.homeBio.Bio.Description,
+      imageUrl: homeData.homeBio.Bio.ImageUrl
+    }
+  }
+
+  carregarObrasPrincipais(homeData: any) {
+    for (const item of homeData.homeObrasPrincipais) {
+      this.carouselPrincipaisObraViewModel.push({
+        imageUrl: item.Obra.ImageUrl
+      })
+    }
+  }
+
+  carregarEventos(homeData: any) {
+    for (const item of homeData.homeEventos) {
+      this.eventosViewModel.push({
+        id: item.Evento.Id,
+        descricao: item.Evento.Description.substring(0, 200) + '...',
+        titulo: item.Evento.Title,
+        imagemUrl: item.Evento.ImageUrl
+      })
+    }
   }
 
   setCarouselText(event: any) {
@@ -69,5 +106,5 @@ export class EventoViewModel {
   imagemUrl!: string;
   titulo!: string;
   descricao!: string;
-  link!: string;
+  link?: string;
 }
