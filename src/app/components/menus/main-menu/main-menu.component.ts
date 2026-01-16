@@ -43,8 +43,8 @@ export class MainMenuComponent {
       { title: 'Home', url: '/home', icon: 'home', active: true },
       { title: 'Obras', url: '/obras', icon: 'palette' },
       { title: 'Premiações', url: '/premiacoes', icon: 'trophy' },
-      { title: 'Eventos', url: '/eventos', icon: 'calendar_month' },
-      { title: 'Biografia', url: '/bio', icon: 'person_book' },
+      { title: 'Exposições', url: '/eventos', icon: 'calendar_month' },
+      { title: 'Biografia', url: '/biografia', icon: 'person_book' },
       { title: 'Contato', url: '/contato', icon: 'call' }
     ];
   }

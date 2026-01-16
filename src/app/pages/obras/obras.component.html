@@ -1,0 +1,20 @@
+<div class="galeria-header-container">
+    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25">
+        <span class="material-symbols-outlined left-arrow-icon">
+            arrow_left_alt
+        </span>
+    </div>
+    <div id="label-galeria">
+        <h6>Galeria</h6>
+    </div>
+    <div>Direita</div>
+</div>
+
+<div class="galeria-container">
+    <div *ngFor="let obra of obras">
+        <img [src]="obra" />
+        <div class="lightbox"> 
+            Clique para visualizar
+        </div>
+    </div>
+</div>

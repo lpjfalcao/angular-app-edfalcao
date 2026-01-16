@@ -6,6 +6,7 @@ import { MobileMenuComponent } from '../../components/menus/mobile-menu/mobile-m
 import { ClickOutsideDirective } from '../../directives/clickOutside.directive';
 import { MobileMenuService } from '../../components/menus/mobile-menu/mobile-menu.service';
 import { MatDialogModule } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,6 +17,10 @@ import { MatDialogModule } from '@angular/material/dialog';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(public mobileMenuService: MobileMenuService) {
+  constructor(public mobileMenuService: MobileMenuService, private router: Router) {
+  }
+
+  goToHome() {
+    this.router.navigate(['/home']);
   }
 }

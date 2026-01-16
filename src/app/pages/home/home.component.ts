@@ -45,7 +45,7 @@ export class HomeComponent {
   @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
   @ViewChild('masonry') masonry?: NgxMasonryComponent;
 
-  carouselText: string = '';
+  carouselText: string = 'Clique nas imagens para visualizar';
   carouselViewModel: CarouselViewModel[] = [];
   carouselPrincipaisObraViewModel: CarouselViewModel[] = [];
   sobreViewModel!: SobreViewModel;

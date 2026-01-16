@@ -5,8 +5,9 @@
             <span class="material-symbols-outlined menu-icon">
                 {{ menuItem.icon}}
             </span>
-            <a [routerLink]="menuItem.url" [class.active-link]="menuItem.active">{{ menuItem.title }}</a>
-            <div class="hover-border" [class.hover-border-active]="menuItem.active"></div>
+            <a [routerLink]="menuItem.url" [class.active-link]="menuItem.active">{{ menuItem.title }}
+                <div class="hover-border" [class.hover-border-active]="menuItem.active"></div>
+            </a>
         </li>
     </ul>
 </nav>
