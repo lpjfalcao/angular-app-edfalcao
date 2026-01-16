@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { LightboxImageViewModel } from '../../viewModels/lightbox-image.viewModel';
 import { LightboxComponent } from '../../components/lightbox/lightbox.component';
 import { LightboxService } from '../../components/lightbox/lightbox.service';
+import { ObrasService } from './obras.service';
+import { environment } from '../../../environments/environment';
+import { ObrasResponse } from '../../interfaces/responses/obras.response';
 
 @Component({
   selector: 'obras',
@@ -14,64 +17,30 @@ import { LightboxService } from '../../components/lightbox/lightbox.service';
   styleUrl: './obras.component.scss'
 })
 export class ObrasComponent {
-  constructor(private lightboxService: LightboxService) {
+  imagemSelecionada!: LightboxImageViewModel;
+  lightboxImagemViewModel: LightboxImageViewModel[] = [];
+  
+  constructor(private lightboxService: LightboxService, private obrasService: ObrasService) {
 
   }
 
-  lightboxImagemViewModel: LightboxImageViewModel[] = [
-    {
-      id: 1,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 2,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 3,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 4,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 5,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 6,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 7,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-    {
-      id: 8,
-      imageUrl: 'https://picsum.photos/seed/picsum/620/480',
-    },
-  ];
+  ngOnInit() {
+    this.carregarObras();
+  } 
 
-  obras: string[] = [
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-    'https://picsum.photos/seed/picsum/620/480',
-  ];
-
-  onClickImagem(target: any) {
-    console.log(target);
+  onClickImagem(target: LightboxImageViewModel) {
+    this.imagemSelecionada = target;
     this.lightboxService.open();
+  }
+
+  carregarObras() {
+    this.obrasService.getObras(`${environment.api.baseUrl}/obras`).subscribe((obraResponse: any) => {
+      for (const item of obraResponse.obras) {
+        this.lightboxImagemViewModel.push({
+          id: item.Id,
+          imageUrl: item.Obra.ImageUrl
+        });
+      }
+    });
   }
 }

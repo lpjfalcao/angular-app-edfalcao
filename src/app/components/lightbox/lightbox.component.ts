@@ -14,14 +14,13 @@ import { LightboxService } from './lightbox.service';
 export class LightboxComponent {
   @Input() imagens: LightboxImageViewModel[] = [];
 
-  imagemSelecionada!: LightboxImageViewModel;
+  @Input() imagemSelecionada!: LightboxImageViewModel;
 
   constructor(public lightboxService: LightboxService) {
 
   }
 
   ngOnInit() {
-    this.imagemSelecionada = this.imagens[0];
+    // this.imagemSelecionada = this.imagens[0];
   }
-
 }

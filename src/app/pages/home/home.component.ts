@@ -14,6 +14,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/owl-carousel.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../../../environments/environment';
+import { HomeResponse } from '../../interfaces/responses/home.response';
 
 @Component({
   selector: 'home',
@@ -65,7 +66,7 @@ export class HomeComponent {
     });
   }
 
-  carregarDestaques(homeData: any) {
+  carregarDestaques(homeData: HomeResponse) {
     for (const item of homeData.homeDestaques) {
       this.carouselViewModel.push({
         imageUrl: item.Destaque.ImageUrl,
@@ -74,14 +75,14 @@ export class HomeComponent {
     }
   }
 
-  carregarBiografia(homeData: any) {
+  carregarBiografia(homeData: HomeResponse) {
     this.sobreViewModel = {
       bio: homeData.homeBio.Bio.Description,
       imageUrl: homeData.homeBio.Bio.ImageUrl
     }
   }
 
-  carregarObrasPrincipais(homeData: any) {
+  carregarObrasPrincipais(homeData: HomeResponse) {
     for (const item of homeData.homeObrasPrincipais) {
       this.carouselPrincipaisObraViewModel.push({
         imageUrl: item.Obra.ImageUrl
@@ -89,10 +90,10 @@ export class HomeComponent {
     }
   }
 
-  carregarEventos(homeData: any) {
+  carregarEventos(homeData: HomeResponse) {
     for (const item of homeData.homeEventos) {
       this.eventosViewModel.push({
-        id: item.Evento.Id,
+        id: item.Id,
         descricao: item.Evento.Description.substring(0, 200) + '...',
         titulo: item.Evento.Title,
         imagemUrl: item.Evento.ImageUrl

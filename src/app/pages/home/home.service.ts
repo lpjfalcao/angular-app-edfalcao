@@ -5,6 +5,7 @@ import { EventoViewModel } from './home.component';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HomeResponse } from '../../interfaces/responses/home.response';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class HomeService {
   constructor(private apiClient: HttpClient) { }
 
 
-  getHomeData(url: string): Observable<any> {
-    return this.apiClient.get(url);    
+  getHomeData(url: string): Observable<HomeResponse> {
+    return this.apiClient.get<HomeResponse>(url);    
   }
 
   getEventos(): EventoViewModel[] {
