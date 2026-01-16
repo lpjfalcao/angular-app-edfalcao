@@ -155,6 +155,11 @@ h3 {
 }
 
 /* Spinner do Angular Material */
+mat-spinner {
+    margin: 0 auto;
+    margin-top: 12%;
+}
+
 .mat-mdc-progress-spinner circle,
 .mat-progress-spinner circle {
   stroke: var(--azul-escuro-2) !important;
