@@ -11,10 +11,11 @@
 </div>
 
 <div class="galeria-container">
-    <div *ngFor="let obra of obras">
-        <img [src]="obra" />
-        <div class="lightbox"> 
+    <div *ngFor="let obra of lightboxImagemViewModel">
+        <img [src]="obra.imageUrl" />
+        <div class="lightbox" [id]="obra.id" (click)="onClickImagem(obra)">
             Clique para visualizar
         </div>
     </div>
+    <lightbox [imagens]="lightboxImagemViewModel"></lightbox>
 </div>

@@ -129,7 +129,11 @@ h3 {
 }
 
 .u-hide {
-    display: none;
+    display: none !important;
+}
+
+.u-radius {
+    border-radius: 20px;
 }
 
 .show-on-small {
@@ -148,4 +152,10 @@ h3 {
     @media screen and (min-width: 1065px) {
         display: none;
     }
+}
+
+/* Spinner do Angular Material */
+.mat-mdc-progress-spinner circle,
+.mat-progress-spinner circle {
+  stroke: var(--azul-escuro-2) !important;
 }

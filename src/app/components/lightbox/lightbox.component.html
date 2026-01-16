@@ -1,0 +1,12 @@
+<div class="lightbox-container u-hide" id="lightbox">
+    <div class="lightbox-header">
+        <div (click)="lightboxService.close()">
+            <span class="material-symbols-outlined close-icon">
+                close
+            </span>
+        </div>
+    </div>
+    <div>
+        <img [src]="imagemSelecionada.imageUrl" [id]="imagemSelecionada.id" *ngIf="imagemSelecionada" />
+    </div>
+</div>

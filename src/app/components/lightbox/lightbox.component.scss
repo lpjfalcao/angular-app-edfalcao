@@ -1,0 +1,36 @@
+.lightbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .lightbox-header {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: var(--branco);
+        
+        .close-icon {
+            font-size: 32px;
+            color: var(--branco);
+            transition: transform .3s;
+        }
+
+        .close-icon:hover {
+            transform: scale(1.4);
+            color: var(--dourado);
+            cursor: pointer;
+
+        }
+    }
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
