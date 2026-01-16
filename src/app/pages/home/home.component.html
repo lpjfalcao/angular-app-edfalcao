@@ -38,7 +38,7 @@
             *ngIf="carouselPrincipaisObraViewModel.length > 0"></owl-carousel>
 
         <div class="button-container">
-            <button mat-button>Ver todas as obras</button>
+            <button mat-button (click)="commonService.goTo('/obras')">Ver todas as obras</button>
         </div>
     </section>
 

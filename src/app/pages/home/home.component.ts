@@ -15,6 +15,7 @@ import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/ow
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../../../environments/environment';
 import { HomeResponse } from '../../interfaces/responses/home.response';
+import { CommonService } from '../../shared/services/common.service';
 
 @Component({
   selector: 'home',
@@ -52,7 +53,7 @@ export class HomeComponent {
   sobreViewModel!: SobreViewModel;
   eventosViewModel: EventoViewModel[] = [];
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, public commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -61,7 +62,11 @@ export class HomeComponent {
       this.carregarBiografia(homeData);
       this.carregarObrasPrincipais(homeData);
       this.carregarEventos(homeData);
-      this.isLoading = false;
+      
+      setTimeout(() => {
+        this.isLoading = false;
+      }, environment.isLoadingTimeout)
+      
       document.querySelector('footer')?.classList.remove('u-hide');
     });
   }

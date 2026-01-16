@@ -8,19 +8,22 @@ import { LightboxService } from '../../components/lightbox/lightbox.service';
 import { ObrasService } from './obras.service';
 import { environment } from '../../../environments/environment';
 import { ObrasResponse } from '../../interfaces/responses/obras.response';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'obras',
   standalone: true,
-  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent],
+  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent, MatProgressSpinnerModule],
   templateUrl: './obras.component.html',
   styleUrl: './obras.component.scss'
 })
 export class ObrasComponent {
   imagemSelecionada!: LightboxImageViewModel;
   lightboxImagemViewModel: LightboxImageViewModel[] = [];
+  isLoading: boolean = true;
   
-  constructor(private lightboxService: LightboxService, private obrasService: ObrasService) {
+  constructor(private lightboxService: LightboxService, private obrasService: ObrasService, private router: Router) {
 
   }
 
@@ -41,6 +44,13 @@ export class ObrasComponent {
           imageUrl: item.Obra.ImageUrl
         });
       }
+      setTimeout(() => {
+        this.isLoading = false;
+      }, environment.isLoadingTimeout);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
   }
 }

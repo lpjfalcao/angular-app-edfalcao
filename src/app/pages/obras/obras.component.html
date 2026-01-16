@@ -1,5 +1,6 @@
-<div class="galeria-header-container">
-    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25">
+<div *ngIf="!isLoading">
+    <div class="galeria-header-container">
+    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25" (click)="goBack()">
         <span class="material-symbols-outlined left-arrow-icon">
             arrow_left_alt
         </span>
@@ -7,15 +8,20 @@
     <div id="label-galeria">
         <h6>Galeria</h6>
     </div>
-    <div></div>
+    <!-- <div>Teste</div> -->
 </div>
 
 <div class="galeria-container">
     <div *ngFor="let obra of lightboxImagemViewModel">
         <img [src]="obra.imageUrl" />
-        <div class="lightbox" [id]="obra.id" (click)="onClickImagem(obra)">
+        <div class="card-lightbox" [id]="obra.id" (click)="onClickImagem(obra)">
             Clique para visualizar
         </div>
     </div>
     <lightbox [imagens]="lightboxImagemViewModel" [imagemSelecionada]="imagemSelecionada"></lightbox>
+</div>
+</div>
+
+<div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
 </div>
