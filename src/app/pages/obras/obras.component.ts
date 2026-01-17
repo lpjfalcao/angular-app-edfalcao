@@ -10,11 +10,12 @@ import { environment } from '../../../environments/environment';
 import { ObrasResponse } from '../../interfaces/responses/obras.response';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'obras',
   standalone: true,
-  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent, MatProgressSpinnerModule],
+  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent, MatProgressSpinnerModule, BreadcrumbComponent],
   templateUrl: './obras.component.html',
   styleUrl: './obras.component.scss'
 })
