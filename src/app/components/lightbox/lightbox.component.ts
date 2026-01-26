@@ -21,6 +21,6 @@ export class LightboxComponent {
   }
 
   ngOnInit() {
-    // this.imagemSelecionada = this.imagens[0];
+    console.log(this.imagens);
   }
 }

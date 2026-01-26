@@ -35,3 +35,23 @@ img {
     width: 100%;
 }
 
+.actions {
+    position: fixed;
+    top: 50%;
+    color: var(--branco);
+    border-radius: 50px;
+    padding: 10px;
+    color: var(--branco);
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: background-color .3s;
+    
+
+    span {
+        vertical-align: -7px;
+    }
+}
+
+.actions:hover {
+    cursor: pointer;
+    background-color: var(--dourado);
+}
