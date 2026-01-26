@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <li *ngFor="let menuItem of menuItems" #itemLista (click)="active($event)"
+        <li class="items-lista-menu" *ngFor="let menuItem of menuItems" #itemLista (click)="active($event)"
             [class.menu-active]="menuItem.active">
             <a [routerLink]="menuItem.url" [class.active-link]="menuItem.active">
                 <span class="material-symbols-outlined menu-icon">

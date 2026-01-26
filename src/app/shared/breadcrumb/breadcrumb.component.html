@@ -1,10 +1,12 @@
 <div class="breadcrumb-container">
-    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25" (click)="commonService.goTo('/home')">
-        <span class="material-symbols-outlined left-arrow-icon">
-            arrow_left_alt
-        </span>
+    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25">
+        <a routerLink="/home">
+            <span class="material-symbols-outlined left-arrow-icon">
+                arrow_left_alt
+            </span>
+        </a>
     </div>
     <div id="label-galeria">
-        <h6>{{ title }}</h6>
+        <span class="texto-em-destaque">{{ title }}</span>
     </div>
 </div>

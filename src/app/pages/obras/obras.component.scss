@@ -12,12 +12,13 @@
 
     div {
         height: 450px;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+     //   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 
         img {
             width: 100%;
             height: 450px;
             object-fit: cover;
+            border-radius: 12px;
         }
     }
 
@@ -47,6 +48,7 @@
     align-items: center;
     display: flex;
     color: transparent;
+    border-radius: 12px;
 }
 
 .card-lightbox:hover {

@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginModalComponent } from '../../modals/login-modal/login-modal.component';
+import { CommonService } from '../../../shared/services/common.service';
 
 @Component({
   selector: 'main-menu',
@@ -33,6 +34,10 @@ export class MainMenuComponent {
   @Input() menuItems: MainMenuViewModel[] = [];
 
   readonly dialog = inject(MatDialog);
+  
+  constructor(public commonService: CommonService) {
+
+  }
 
   ngOnInit() {
     this.loadMenuItems();
@@ -40,13 +45,19 @@ export class MainMenuComponent {
 
   loadMenuItems() {
     this.menuItems = [
-      { title: 'Home', url: '/home', icon: 'home', active: true },
+      { title: 'Home', url: '/home', icon: 'home'},
       { title: 'Obras', url: '/obras', icon: 'palette' },
       { title: 'Premiações', url: '/premiacoes', icon: 'trophy' },
       { title: 'Exposições', url: '/eventos', icon: 'calendar_month' },
       { title: 'Biografia', url: '/biografia', icon: 'person_book' },
       { title: 'Contato', url: '/contato', icon: 'call' }
     ];
+    
+    this.menuItems.forEach((item: any )=> {
+      if (document.URL.includes(item.url)) {
+        item.active = true;
+      }
+    });
   }
 
   active(element: MouseEvent) {
