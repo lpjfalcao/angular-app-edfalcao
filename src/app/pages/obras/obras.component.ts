@@ -23,14 +23,14 @@ export class ObrasComponent {
   imagemSelecionada!: LightboxImageViewModel;
   lightboxImagemViewModel: LightboxImageViewModel[] = [];
   isLoading: boolean = true;
-  
+
   constructor(private lightboxService: LightboxService, private obrasService: ObrasService, private router: Router) {
 
   }
 
   ngOnInit() {
     this.carregarObras();
-  } 
+  }
 
   onClickImagem(target: LightboxImageViewModel) {
     this.imagemSelecionada = target;
@@ -45,6 +45,17 @@ export class ObrasComponent {
           imageUrl: item.Obra.ImageUrl
         });
       }
+
+      this.lightboxImagemViewModel.sort(function (a, b) {
+        if (a.id < b.id) {
+          return -1;
+        }
+        if (a.id > b.id) {
+          return 1;
+        }
+        return 0;
+      });
+
       setTimeout(() => {
         this.isLoading = false;
       }, environment.isLoadingTimeout);
@@ -53,5 +64,21 @@ export class ObrasComponent {
 
   goBack() {
     this.router.navigate(['/home']);
+  }
+
+  previous(idx: any) {
+    console.log(`previous ${idx}`);
+    const imagem = this.lightboxService.previous(idx);
+    if (imagem) {
+      this.imagemSelecionada = imagem;
+    }    
+  }
+
+  next(idx: any) {
+    console.log(`next ${idx}`);
+    const imagem = this.lightboxService.next(idx);
+    if (imagem) {
+      this.imagemSelecionada = imagem;
+    }
   }
 }

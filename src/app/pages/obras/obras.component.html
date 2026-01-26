@@ -8,7 +8,7 @@
                 Clique para visualizar
             </div>
         </div>
-        <lightbox [imagens]="lightboxImagemViewModel" [imagemSelecionada]="imagemSelecionada"></lightbox>
+        <lightbox [imagens]="lightboxImagemViewModel" [imagemSelecionada]="imagemSelecionada"  (onPrevious)="previous($event)" (onNext)="next($event)"></lightbox>
     </div>
 </div>
 

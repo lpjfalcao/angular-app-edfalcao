@@ -9,13 +9,13 @@
     <div>
         <img [src]="imagemSelecionada.imageUrl" [id]="imagemSelecionada.id" *ngIf="imagemSelecionada" />
     </div>
-    <div style="left: 10px;" class="actions">
+    <div style="left: 10px;" class="actions" (click)="onClickPrevious($event, imagemSelecionada.id)">
         <span class="material-symbols-outlined">
             chevron_left
         </span>
 
     </div>
-    <div style="right: 10px;" class="actions">
+    <div style="right: 10px;" class="actions" (click)="onClickNext($event, imagemSelecionada.id)">
         <span class="material-symbols-outlined">
             chevron_right
         </span>

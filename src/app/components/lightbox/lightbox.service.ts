@@ -5,9 +5,11 @@ import { LightboxImageViewModel } from '../../viewModels/lightbox-image.viewMode
   providedIn: 'root'
 })
 export class LightboxService {
-  imagens: LightboxImageViewModel[] = [];
+  public imagens: LightboxImageViewModel[] = [];
+  public imagemSelecionadaService!: LightboxImageViewModel;
 
-  constructor() { }
+  constructor() {
+  }
 
   open() {
     const lightbox = document.getElementById('lightbox');
@@ -19,11 +21,24 @@ export class LightboxService {
     lightbox?.classList.add('u-hide');
   }
 
-  previous() {
+  public previous(id: any) {
+    id--;
+    console.log(`previous ${id}`);
 
+    if (id == 0)
+      return;
+
+    return this.imagens[id];
   }
 
-  next() {
+  public next(id: any) {
+    id++;
+    
+    console.log(`next ${id}`);
 
+    if (id > this.imagens.length - 1)
+      return;
+
+    return this.imagens[id];
   }
 }
