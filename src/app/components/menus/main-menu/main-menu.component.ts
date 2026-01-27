@@ -57,6 +57,10 @@ export class MainMenuComponent {
       if (document.URL.includes(item.url)) {
         item.active = true;
       }
+      // else {
+      //   if (item.title == 'Home')
+      //       item.active = true;
+      // }
     });
   }
 

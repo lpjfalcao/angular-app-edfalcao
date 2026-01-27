@@ -7,12 +7,13 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'breadcrumb',
   standalone: true,
-  imports: [MatRippleModule, RouterLink],
+  imports: [MatRippleModule, RouterLink, CommonModule],
   templateUrl: './breadcrumb.component.html',
   styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbComponent {
   @Input() title!: string;
+  @Input() strokeColor: string = '1px black';
 
   constructor(public commonService: CommonService) {
 

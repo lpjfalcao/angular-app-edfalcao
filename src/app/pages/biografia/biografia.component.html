@@ -1,1 +1,35 @@
-<p>biografia works!</p>
+<section class="biografia-container">
+    <breadcrumb title="Biografia" strokeColor="1px white"></breadcrumb>
+
+    <div class="row" *ngIf="sobre">
+        <div class="col-lg-6">
+            <img [src]="sobre.imageUrl" class="img-edfalcao" />
+            <section>
+                <h3>Sobre o artista <span class="u-dourado">Ed Falcão</span></h3>
+                <div class="bio-descricao" [innerHTML]="sobre.bio"></div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <div>
+                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg"
+                    class="img-destaque" />
+            </div>
+            <div>
+                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg"
+                    class="img-destaque " />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-xs-12">
+            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg" class="img-destaque-x" />
+        </div>
+        <div class="col-lg-4 col-xs-12">
+            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg" class="img-destaque-x" />
+        </div>
+        <div class="col-lg-4 col-xs-12">
+            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg" class="img-destaque-x" />
+        </div>
+    </div>
+</section>
