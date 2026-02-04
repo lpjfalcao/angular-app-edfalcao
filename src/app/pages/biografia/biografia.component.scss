@@ -1,3 +1,5 @@
+@use '../../../variables.scss' as var;
+
 ::ng-deep body {
     overflow-x: hidden;
 }
@@ -35,6 +37,66 @@
     div.bio-descricao {
         font-size: 22px;
         font-weight: 100;
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: var.$mobile-width) {
+        img {
+            width: 100%;
+        }
+
+        .img-destaque {
+            float: none;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: var.$mobile-width-sm) {
+         .row {
+            padding-bottom: 0;
+            padding-top: 0;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .img-destaque {
+            float: none;
+        }
+
+        .img-destaque-x {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+     
+        .col-edfalcao-img {
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: var.$mobile-width-xsm) {
+        .row {
+            padding-bottom: 0;
+            padding-top: 0;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .img-destaque {
+            float: none;
+        }
+
+        .img-destaque-x {
+            margin-bottom: 30px;
+            width: 100%;
+        }
     }
 
 }

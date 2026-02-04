@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginModalComponent } from '../../modals/login-modal/login-modal.component';
+import { CommonService } from '../../../shared/services/common.service';
 
 @Component({
   selector: 'mobile-menu',
@@ -19,14 +20,15 @@ export class MobileMenuComponent {
   
   readonly dialog = inject(MatDialog);
 
-  constructor(public mobileMenuService: MobileMenuService) { }
+  constructor(public mobileMenuService: MobileMenuService, public commonService: CommonService) { }
 
   ngOnInit() {
     this.loadMenuItems();
   }
 
   action(url: string) {
-    console.log(`open ${url}`);
+    this.commonService.goTo(url);
+    this.mobileMenuService.closeMenuMobile();
   }
 
   loadMenuItems() {

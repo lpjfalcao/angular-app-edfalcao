@@ -1,15 +1,15 @@
 <section class="biografia-container">
     <breadcrumb title="Biografia" strokeColor="1px white"></breadcrumb>
 
-    <div class="row" *ngIf="sobre">
-        <div class="col-lg-6">
+    <div class="row" *ngIf="sobre" style="padding-top: 60px">
+        <div class="col-lg-6 col-md-12 col-edfalcao-img">
             <img [src]="sobre.imageUrl" class="img-edfalcao" />
             <section>
                 <h3>Sobre o artista <span class="u-dourado">Ed Falcão</span></h3>
                 <div class="bio-descricao" [innerHTML]="sobre.bio"></div>
             </section>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-12">
             <div>
                 <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg"
                     class="img-destaque" />
@@ -21,8 +21,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-4 col-xs-12">
+    <div class="row rol-3">
+        <div class="col-lg-4 col-md-12">
             <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg" class="img-destaque-x" />
         </div>
         <div class="col-lg-4 col-xs-12">

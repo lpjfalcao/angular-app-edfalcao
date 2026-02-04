@@ -58,7 +58,7 @@ header {
 /* Mobile Styles */
 @media screen and (max-width: 1064px) {
     .menu-mobile-section {
-        display: block;
+        display: block !important;
     }
 
     .header-2 {
