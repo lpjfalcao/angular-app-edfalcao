@@ -11,11 +11,12 @@ import { ObrasResponse } from '../../interfaces/responses/obras.response';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
+import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
   selector: 'obras',
   standalone: true,
-  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent, MatProgressSpinnerModule, BreadcrumbComponent],
+  imports: [MatRippleModule, MatIconModule, CommonModule, LightboxComponent, MatProgressSpinnerModule, BreadcrumbComponent, ErrorMessageComponent],
   templateUrl: './obras.component.html',
   styleUrl: './obras.component.scss'
 })
@@ -23,6 +24,7 @@ export class ObrasComponent {
   imagemSelecionada!: LightboxImageViewModel;
   lightboxImagemViewModel: LightboxImageViewModel[] = [];
   isLoading: boolean = true;
+  hasError: boolean = false;
 
   constructor(private lightboxService: LightboxService, private obrasService: ObrasService, private router: Router) {
 
@@ -38,27 +40,36 @@ export class ObrasComponent {
   }
 
   carregarObras() {
-    this.obrasService.getObras(`${environment.api.baseUrl}/obras`).subscribe((obraResponse: any) => {
-      for (const item of obraResponse.obras) {
-        this.lightboxImagemViewModel.push({
-          id: item.Id,
-          imageUrl: item.Obra.ImageUrl
+    this.obrasService.getObras(`${environment.api.baseUrl}/obras`).subscribe({
+      next: (obraResponse: any) => {
+        for (const item of obraResponse.obras) {
+          this.lightboxImagemViewModel.push({
+            id: item.Id,
+            imageUrl: item.Obra.ImageUrl
+          });
+        }
+
+        this.lightboxImagemViewModel.sort(function (a, b) {
+          if (a.id < b.id) {
+            return -1;
+          }
+          if (a.id > b.id) {
+            return 1;
+          }
+          return 0;
         });
+
+        setTimeout(() => {
+          this.isLoading = false;
+        }, environment.isLoadingTimeout);
+      },
+      error: (err) => {
+        console.log(err);
+         setTimeout(() => {
+          this.hasError = true;
+          this.isLoading = false;
+        }, environment.isLoadingTimeout);
       }
-
-      this.lightboxImagemViewModel.sort(function (a, b) {
-        if (a.id < b.id) {
-          return -1;
-        }
-        if (a.id > b.id) {
-          return 1;
-        }
-        return 0;
-      });
-
-      setTimeout(() => {
-        this.isLoading = false;
-      }, environment.isLoadingTimeout);
     });
   }
 
@@ -71,7 +82,7 @@ export class ObrasComponent {
     const imagem = this.lightboxService.previous(idx);
     if (imagem) {
       this.imagemSelecionada = imagem;
-    }    
+    }
   }
 
   next(idx: any) {

@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading && !hasError">
     <section class="carousel">
         <h3>Destaques</h3>
         <p>{{ carouselText }}</p>
@@ -22,7 +22,7 @@
             <p>{{ sobreViewModel.bio }}</p>
 
             <div class="button-container">
-                <button mat-button>Biografia Completa</button>
+                <button mat-button (click)="commonService.goTo('/biografia')">Biografia Completa</button>
             </div>
         </div>
     </section>
@@ -76,6 +76,10 @@
             <button mat-button>Ver mais eventos</button>
         </div>
     </section>
+</div>
+
+<div *ngIf="hasError">
+    <error-message></error-message>
 </div>
 
 <div *ngIf="isLoading">

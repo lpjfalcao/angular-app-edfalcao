@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading && !hasError">
     <breadcrumb title="Galeria"></breadcrumb>
 
     <div class="galeria-container">
@@ -10,6 +10,10 @@
         </div>
         <lightbox [imagens]="lightboxImagemViewModel" [imagemSelecionada]="imagemSelecionada"  (onPrevious)="previous($event)" (onNext)="next($event)"></lightbox>
     </div>
+</div>
+
+<div *ngIf="hasError">
+    <error-message></error-message>
 </div>
 
 <div *ngIf="isLoading">

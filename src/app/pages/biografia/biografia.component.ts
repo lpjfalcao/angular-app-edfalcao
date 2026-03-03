@@ -5,11 +5,13 @@ import { BiografiaContainer, BiografiaResponse } from '../../interfaces/response
 import { environment } from '../../../environments/environment';
 import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 import { CommonModule } from '@angular/common';
+import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'biografia',
   standalone: true,
-  imports: [BreadcrumbComponent, CommonModule],
+  imports: [BreadcrumbComponent, CommonModule, ErrorMessageComponent, MatProgressSpinnerModule],
   templateUrl: './biografia.component.html',
   styleUrl: './biografia.component.scss'
 })
@@ -17,13 +19,28 @@ export class BiografiaComponent {
   readonly biografiaService = inject(BiografiaService)
 
   sobre: SobreViewModel = new SobreViewModel();
+  isLoading: boolean = true;
+  hasError: boolean = false;
 
   ngOnInit() {
-    this.biografiaService.getBiografias(`${environment.api.baseUrl}/biografia`).subscribe((bioResponse: BiografiaResponse) => {
-      const biografiaContainer: BiografiaContainer = bioResponse.biografia[0];
-      console.log(biografiaContainer);
-      this.sobre.bio = biografiaContainer.Bio.Description;
-      this.sobre.imageUrl = biografiaContainer.Bio.Foto;
+    this.biografiaService.getBiografias(`${environment.api.baseUrl}/biografia`).subscribe({
+      next: (bioResponse: BiografiaResponse) => {
+        const biografiaContainer: BiografiaContainer = bioResponse.biografia[0];
+        console.log(biografiaContainer);
+        this.sobre.bio = biografiaContainer.Bio.Description;
+        this.sobre.imageUrl = biografiaContainer.Bio.Foto;
+
+        setTimeout(() => {
+          this.isLoading = false;
+        }, environment.isLoadingTimeout);
+      },
+      error: (err) => {
+        console.log(err);
+        setTimeout(() => {
+          this.hasError = true;
+          this.isLoading = false;
+        }, environment.isLoadingTimeout)
+      }
     });
   }
 }

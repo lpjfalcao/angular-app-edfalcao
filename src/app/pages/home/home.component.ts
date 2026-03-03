@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../../../environments/environment';
 import { HomeResponse } from '../../interfaces/responses/home.response';
 import { CommonService } from '../../shared/services/common.service';
+import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
   selector: 'home',
@@ -29,7 +30,8 @@ import { CommonService } from '../../shared/services/common.service';
     PrincipaisObrasComponent,
     CarouselModule,
     OwlCarouselComponent,
-    MatProgressSpinnerModule],
+    MatProgressSpinnerModule,
+    ErrorMessageComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -52,22 +54,32 @@ export class HomeComponent {
   carouselPrincipaisObraViewModel: CarouselViewModel[] = [];
   sobreViewModel!: SobreViewModel;
   eventosViewModel: EventoViewModel[] = [];
+  hasError: boolean = false;
 
   constructor(private homeService: HomeService, public commonService: CommonService) {
   }
 
   ngOnInit() {
-    this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe((homeData: any) => {
-      this.carregarDestaques(homeData);
-      this.carregarBiografia(homeData);
-      this.carregarObrasPrincipais(homeData);
-      this.carregarEventos(homeData);
-      
-      setTimeout(() => {
-        this.isLoading = false;
-      }, environment.isLoadingTimeout)
-      
-      document.querySelector('footer')?.classList.remove('u-hide');
+    this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe({
+      next: (homeData: any) => {
+        this.carregarDestaques(homeData);
+        this.carregarBiografia(homeData);
+        this.carregarObrasPrincipais(homeData);
+        this.carregarEventos(homeData);
+
+        setTimeout(() => {
+          this.isLoading = false;
+        }, environment.isLoadingTimeout)
+
+        document.querySelector('footer')?.classList.remove('u-hide');
+      },
+      error: (err) => {
+        console.log(err);
+        setTimeout(() => {
+          this.hasError = true;
+          this.isLoading = false;
+        }, environment.isLoadingTimeout)        
+      }
     });
   }
 
