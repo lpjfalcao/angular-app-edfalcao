@@ -27,12 +27,4 @@ export class CommonService {
     //this.activeMenu();
   }
 
-  // activeMenu() {
-  //   const itemsMenu = document.querySelector('.items-lista-menu') as any;
-  //   itemsMenu.forEach((el: any) => {
-  //     el.nativeElement.classList.remove('menu-active');
-  //     el.nativeElement.querySelector('.hover-border').classList.remove('hover-border-active');
-  //     el.nativeElement.querySelector('a').classList.remove('active-link');
-  //   });
-  // }
 }

@@ -37,7 +37,7 @@ export class MobileMenuComponent {
       { title: 'Obras', url: '/obras' },
       { title: 'Premiações', url: '/premiacoes' },
       { title: 'Eventos', url: '/eventos'},
-      { title: 'Biografia', url: '/bio',  },
+      { title: 'Biografia', url: '/biografia',  },
       { title: 'Contato', url: '/contato' }
     ];
   }

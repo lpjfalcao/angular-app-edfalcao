@@ -22,17 +22,17 @@ export class LightboxService {
   }
 
   public previous(id: any) {
-    id--;
+    id -= 2;
     console.log(`previous ${id}`);
 
-    if (id == 0)
+    if (id < 0)
       return;
 
     return this.imagens[id];
   }
 
   public next(id: any) {
-    id++;
+    // id++;
     
     console.log(`next ${id}`);
 
