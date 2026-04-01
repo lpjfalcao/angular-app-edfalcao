@@ -48,7 +48,7 @@
 
 
         <div class="button-container">
-            <button mat-button>Ver premiações</button>
+            <button mat-button (click)="commonService.goTo('/premiacoes')">Ver premiações</button>
         </div>
     </section>
 
@@ -73,7 +73,7 @@
 
 
         <div class="button-container">
-            <button mat-button>Ver mais eventos</button>
+            <button mat-button (click)="commonService.goTo('/eventos')">Ver mais eventos</button>
         </div>
     </section>
 </div>

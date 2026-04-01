@@ -1,0 +1,15 @@
+@use '../../../variables.scss' as var;
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-card-footer {
+    padding: 16px;
+}
+
+.message-box-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
