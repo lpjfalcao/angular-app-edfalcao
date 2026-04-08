@@ -100,6 +100,7 @@ section.obras {
     margin-top: -42px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 50px;
+    padding-right: 90px;
 
     h3 {
         // padding-left: 50px;
@@ -128,6 +129,7 @@ section.obras {
     }
 
     @media screen and (max-width: var.$mobile-width) {
+        padding-right: 90px;
         grid-template-columns: auto;
 
         h3 {
@@ -138,6 +140,11 @@ section.obras {
 
             font-size: var.$font-size-20
         }
+    }
+
+    
+    @media screen and (max-width: var.$mobile-width-sm) {
+        padding-right: 50px;
     }
 
     .obras-grid {
@@ -219,10 +226,14 @@ section.eventos {
     background-color: var(--azul-escuro-3);
     padding: 50px;
 
-    .row {
-        padding-left: 200px;
-        padding-right: 200px;
+    mat-card {
+        height: 100%;
     }
+
+    // .row {
+    //     padding-left: 200px;
+    //     padding-right: 200px;
+    // }
 
     h3 {
         color: var(--branco);
@@ -230,7 +241,7 @@ section.eventos {
 
     h5 {
         margin-top: 20px;
-        height: 70px;
+        height: auto;
     }
 
     button {
@@ -248,12 +259,17 @@ section.eventos {
         }
     }
 
-    /* Mobile Styles */
-    @media screen and (max-width: var.$mobile-width) {
+    @media screen and (max-width: var.$mobile-width-xsm) {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        h5 {
+            height: auto;
+        }
+
         .row {
             padding-left: 0;
             padding-right: 0;
         }
     }
 }
-

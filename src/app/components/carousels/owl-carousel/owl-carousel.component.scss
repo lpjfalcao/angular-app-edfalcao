@@ -72,3 +72,14 @@
         margin-left: 20px;
     }
 }
+
+@media screen and (max-width: var.$mobile-width-xsm) {
+    ::ng-deep .owl-carousel {
+        border: none;
+        margin-left: 20px;
+    }
+
+    ::ng-deep .owl-theme .owl-nav {
+        margin-left: -20px;
+    }
+}
