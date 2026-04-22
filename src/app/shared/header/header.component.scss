@@ -1,16 +1,24 @@
+@use '../../../variables.scss' as var;
+
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 48px;
-    background-color: var(--azul-escuro-2);
+    height: 70px; //48px;
+    background-color: var(--azul-escuro-3);
     left: 0;
     top: 0;
     width: 100%;
-    padding-top: 23px;
+    padding-top: 36px;
 
     div {
         margin: 0px 30px 0px 30px;
+    }
+
+    div.container-logo {
+        @media screen and (max-width: var.$mobile-width-xsm) {
+            margin-left: 0;
+        }    
     }
 
     .logo-title {
@@ -18,8 +26,13 @@ header {
         font-weight: bold;
         position: absolute;
         left: 110px;
-        top: 20px;
+        top: 31px;
         color: var(--branco);
+        margin-left: 10px;
+
+        @media screen and (max-width: var.$mobile-width-xsm) {
+            left: 84px;
+        }    
     }
 
     img {
@@ -29,7 +42,7 @@ header {
 
     .menu-mobile-section {
         color: var(--branco);
-        margin-right: 56px;
+        // margin-right: 56px;
 
         span {
             transition: color 0.3s;
@@ -46,8 +59,8 @@ header {
 }
 
 .header-2 {
-    background: var(--branco);
-    border-bottom: 1px solid silver;
+    background: var(--azul-escuro-3);
+    //border-bottom: 1px solid silver;
 
     ul {
         padding-left: 10px;

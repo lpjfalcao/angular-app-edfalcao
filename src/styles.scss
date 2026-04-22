@@ -59,7 +59,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--gelo);
+    background-color: var(--azul-escuro-3);
 
 }
 
@@ -145,19 +145,19 @@ h3 {
 
 .show-on-small {
     @media screen and (max-width: 1064px) {
-        display: block;
+        display: block !important;
     }
 }
 
 .hide-on-small {
     @media screen and (max-width: 1064px) {
-        display: none;
+        display: none !important;
     }
 }
 
 .hide-on-large {
     @media screen and (min-width: 1065px) {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -169,7 +169,7 @@ mat-spinner {
 
 .mat-mdc-progress-spinner circle,
 .mat-progress-spinner circle {
-    stroke: var(--azul-escuro-2) !important;
+    stroke: var(--gelo-2) !important;
 }
 
 .texto-em-destaque {

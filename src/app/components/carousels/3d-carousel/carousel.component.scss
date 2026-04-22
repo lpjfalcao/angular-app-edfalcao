@@ -1,19 +1,36 @@
 /* Aumenta a altura total do container */
+@use '../../../../variables.scss' as var;
+
 .carousel {
-    height: 600px !important; 
+    position: relative;
+    height: 600px;
     width: 98%;
     margin: 0 auto;
+    top: 7px !important;
 
     img {
         box-shadow: 3px 3px 10px #000;
         border-radius: 20px;
     }
+
+     @media screen and (max-width: var.$mobile-width-sm) {
+           top: 5px !important;
+     }
+
+    .carousel-item {
+        width: 600px;
+        height: 600px;
+        // top: -100;
+
+        // @media screen and (max-width: var.$mobile-width-sm) {
+        //     height: auto !important;
+        //     border: solid red 3px;
+        //     top: -85px !important;
+        // }
+    }
 }
 
-.carousel .carousel-item {
-    width: 600px !important;
-    height: 600px !important;
-}
+
 
 ::ng-deep .indicator-item.active {
     background-color: #F5A623 !important;
@@ -24,4 +41,28 @@
 }
 
 
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 36%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    width: 48px;
+    height: 46px;
+    font-size: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    border-radius: 50%;
+}
 
+.prev-btn {
+    left: 5%;
+}
+
+.next-btn {
+    right: 5%;
+}

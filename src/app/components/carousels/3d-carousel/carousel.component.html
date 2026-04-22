@@ -1,4 +1,15 @@
-  <div #carouselRef class="carousel">
-    <a class="carousel-item u-pointer" (click)="onClickCarousel(item.title!)" *ngFor="let item of carouselItems"><img [src]="item.imageUrl"></a>
-  </div>
-      
+<div #carouselRef class="carousel">
+  <!-- Arrow left -->
+  <a class="btn-floating btn-large waves-effect waves-light grey prev-btn hide-on-large" (click)="prev()" *ngIf="isMobile">
+    <i class="material-icons">chevron_left</i>
+  </a>
+
+  <!-- Imagens -->
+  <a class="carousel-item u-pointer" (click)="onClickCarousel(item.title!)" *ngFor="let item of carouselItems"><img
+      [src]="item.imageUrl"></a>
+
+  <!-- Arrow right -->
+  <a class="btn-floating btn-large waves-effect waves-light grey next-btn hide-on-large" (click)="next()" *ngIf="isMobile">
+    <i class="material-icons">chevron_right</i>
+  </a>
+</div>

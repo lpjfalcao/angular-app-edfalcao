@@ -1,7 +1,8 @@
 <div *ngIf="!isLoading && !hasError">
     <section class="carousel">
-        <h3>Destaques</h3>
-        <p>{{ carouselText }}</p>
+        <h1>Destaques</h1>
+        <p class="hide-on-small">{{ carouselText }}</p>
+        <p class="hide-on-large">clique nas setas para ver as imagens</p>
         <carousel [carouselItems]="carouselViewModel" (onSetCarouselText)="setCarouselText($event)"
             *ngIf="carouselViewModel.length > 0"></carousel>
     </section>
@@ -15,7 +16,7 @@
             <img [src]="sobreViewModel.imageUrl" />
         </div>
         <div class="container-bio">
-            <h3>Sobre o artista <span class="u-dourado line-break">Ed Falcão</span></h3>
+            <h1>Sobre <span class="u-dourado line-break">o artista</span></h1>
             <div class="show-on-small hide-on-large">
                 <img [src]="sobreViewModel.imageUrl" />
             </div>
@@ -28,7 +29,7 @@
     </section>
 
     <section class="obras u-top-radius">
-        <h3>Principais <span class="u-dourado">Obras</span></h3>
+        <h1>Principais <span class="u-dourado">Obras</span></h1>
         <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a
             força, a
             espiritualidade
@@ -43,7 +44,7 @@
     </section>
 
     <section class="premiacoes">
-        <h3>Premiações</h3>
+        <h1>Premiações</h1>
         <p>Medalhas, troféus e certificados conquistados ao longo da minha jornada</p>
 
 
@@ -53,7 +54,7 @@
     </section>
 
     <section class="eventos">
-        <h3><span class="u-dourado">Exposições</span></h3>
+        <h1><span class="u-dourado">Exposições</span></h1>
         <div class="row">
             <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
                 <mat-card class="example-card" appearance="outlined">

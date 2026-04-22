@@ -26,4 +26,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 })
 export class AppComponent {
   title = 'angular-app-edfalcao';
+
+  ngOnInit() {
+    console.log(`
+      Versão: 1.0.1 \n
+      Publicada em: 09/04/2026`);
+  }
 }
