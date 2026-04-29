@@ -5,7 +5,9 @@ header {
     flex-direction: row;
     justify-content: space-between;
     height: 70px; //48px;
-    background-color: var(--azul-escuro-3);
+    z-index: 1000;
+    position: relative;
+    background: transparent;
     left: 0;
     top: 0;
     width: 100%;
@@ -46,6 +48,8 @@ header {
 
         span {
             transition: color 0.3s;
+            font-size: 42px;
+            margin-top: -10px;
         }
 
         span:hover {
@@ -59,7 +63,9 @@ header {
 }
 
 .header-2 {
-    background: var(--azul-escuro-3);
+    display: none;
+    background: transparent;
+    z-index: 1000;
     //border-bottom: 1px solid silver;
 
     ul {

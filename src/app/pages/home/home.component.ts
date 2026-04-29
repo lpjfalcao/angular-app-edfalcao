@@ -45,9 +45,12 @@ export class HomeComponent {
   quantidadeMaximaItensDaGrid!: number;
   quantidadeMaximaItensDaGridCategoriaSelecionada!: number;
   isLoading: boolean = true;
+  somAtivado: boolean = false;
 
   @ViewChild('emblaRef', { static: false }) emblaRef!: ElementRef;
   @ViewChild('masonry') masonry?: NgxMasonryComponent;
+  @ViewChild('meuVideo') _meuVideo!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoBackground') _videoBackground!: ElementRef<HTMLVideoElement>;
 
   carouselText: string = 'Clique nas imagens para visualizar';
   carouselViewModel: CarouselViewModel[] = [];
@@ -58,6 +61,8 @@ export class HomeComponent {
 
   constructor(private homeService: HomeService, public commonService: CommonService) {
   }
+
+
 
   ngOnInit() {
     this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe({
@@ -78,7 +83,7 @@ export class HomeComponent {
         setTimeout(() => {
           this.hasError = true;
           this.isLoading = false;
-        }, environment.isLoadingTimeout)        
+        }, environment.isLoadingTimeout)
       }
     });
   }
@@ -121,7 +126,54 @@ export class HomeComponent {
   setCarouselText(event: any) {
     this.carouselText = event;
   }
+
+  @ViewChild('meuVideo') set videoRef(content: ElementRef<HTMLVideoElement>) {
+    if (content) { // O 'content' existirá quando o *ngIf for true
+      this._meuVideo = content;
+      this.configurarVideo();
+    }
+  }
+
+  @ViewChild('videoBackground') set videoRefBackground(content: ElementRef<HTMLVideoElement>) {
+    if (content) {
+      this._videoBackground = content;
+      this._videoBackground.nativeElement.muted = true;
+      this._videoBackground.nativeElement.play();
+    }
+  }
+
+  get meuVideo() {
+    return this._meuVideo;
+  }
+
+  configurarVideo() {
+    if (this._meuVideo) {
+      const video = this._meuVideo.nativeElement;
+      console.log('Vídeo detectado e pronto para uso:', video);
+      this._meuVideo.nativeElement.muted = true;
+      this._meuVideo.nativeElement.play();
+    }
+  }
+
+  ligarSom() {
+    if (this._meuVideo) {
+      const video = this._meuVideo.nativeElement;
+      video.muted = false; // Desmuta o vídeo
+      video.volume = 0.5;  // Define um volume de 50%
+      this.somAtivado = true;
+      video.play().catch(err => console.error("Erro ao dar play com som:", err));
+    }
+  }
+
+  desligarSom() {
+    if (this._meuVideo) {
+      const video = this._meuVideo.nativeElement;
+      video.muted = true
+      this.somAtivado = false;
+    }
+  }
 }
+
 
 export class EventoViewModel {
   id!: number;

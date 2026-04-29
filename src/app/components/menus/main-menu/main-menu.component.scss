@@ -10,7 +10,9 @@
              cursor: pointer;
              transition: color 0.3s;
              font-weight: bold;
-             color: var(--gelo-2);
+             //color: var(--gelo-2);
+             color: white;
+             
 
              .menu-icon {
                  vertical-align: -6px;
@@ -18,7 +20,7 @@
              }
 
              .hover-border {
-                 border-bottom: 3px solid white;//var(--azul-escuro-2);
+                 //border-bottom: 3px solid white;//var(--azul-escuro-2);
                  padding-bottom: 20px;
                  width: 0;
                  transition: width 0.3s;
@@ -66,7 +68,7 @@
      margin: 0;
      position: absolute;
      right: 57px;
-     top: 131px;
+     top: 31px;
      color: var(--gelo-2);
      transition: color 0.3s;
  }
@@ -87,7 +89,7 @@
  .btn-login {
      background: transparent;
      border: none;
-     color: var(--gelo-2);
+     color: white;// var(--gelo-2);
      cursor: pointer;
      transition: color 0.3s;
  }

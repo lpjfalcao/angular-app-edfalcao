@@ -1,5 +1,25 @@
 <div *ngIf="!isLoading && !hasError">
-    <section class="carousel">
+    <section class="first-look">
+        <div class="video-container">
+            <video autoplay muted loop class="fill-video" id="meuVideo" #meuVideo>
+                <source src="/video/bio.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
+            <video autoplay muted loop class="video-background" id="videoBackground" #videoBackground>
+                <source src="/video/bio.mp4" type="video/mp4">
+            </video>
+            <span class="material-symbols-outlined volume-icon" style="position: absolute; z-index: 1000; right: 100px;"
+                (click)=ligarSom() *ngIf="!somAtivado">
+                volume_off
+            </span>
+
+            <span class="material-symbols-outlined volume-icon" style="position: absolute; z-index: 1000; right: 100px;"
+                (click)=desligarSom() *ngIf="somAtivado">
+                volume_up
+            </span>
+        </div>
+    </section>
+    <section class="carousel u-top-radius">
         <h1>Destaques</h1>
         <p class="hide-on-small">{{ carouselText }}</p>
         <p class="hide-on-large">clique nas setas para ver as imagens</p>
