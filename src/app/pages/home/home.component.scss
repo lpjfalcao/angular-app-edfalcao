@@ -13,7 +13,7 @@ section,
 }
 
 section.carousel {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 200px;
     height: 500px;
     color: var(--preto);
@@ -315,7 +315,7 @@ section.eventos {
     .volume-icon {
         position: absolute;
         z-index: 1000;
-        right: 100px;
+        right: 3vh;
         bottom: 100px;
         color: white;
         font-size: 62px;

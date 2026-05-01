@@ -13,7 +13,7 @@ header {
     width: 100%;
     padding-top: 36px;
 
-    @media screen and (max-width: var.$mobile-width) {
+    @media screen and (max-width: var.$mobile-width-xsm) {
         padding-top: 0;
         backdrop-filter: blur(100px);
         height: 80px;
