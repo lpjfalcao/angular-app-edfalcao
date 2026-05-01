@@ -1,3 +1,5 @@
+@use './variables.scss' as var;
+
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 // 1. Primeiro as funções (para o Sass saber processar as cores)
@@ -11,7 +13,6 @@
 
 // Opcional: Efeito de clique (Waves)
 @import "../node_modules/materialize-css/sass/components/waves";
-
 
 :root {
     --azul-escuro-1: #2B5A8E;
@@ -73,6 +74,18 @@ h6,
 p,
 div {
     font-family: 'Font Hero', sans-serif !important;
+}
+
+h1 {
+    @media screen and (max-width: var.$mobile-width-sxsm) {
+        font-size: 2.5rem !important;
+    }
+}
+
+p {
+    @media screen and (max-width: var.$mobile-width-sxsm) {
+        font-size: 1.1rem !important;
+    }
 }
 
 h3 {
@@ -165,11 +178,12 @@ h3 {
 mat-spinner {
     margin: 0 auto;
     margin-top: 12%;
+    top: 20vh;
 }
 
 .mat-mdc-progress-spinner circle,
 .mat-progress-spinner circle {
-    stroke: var(--gelo-2) !important;
+    stroke: var(--azul-escuro-2) !important;
 }
 
 .texto-em-destaque {

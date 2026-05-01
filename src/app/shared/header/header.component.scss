@@ -13,6 +13,12 @@ header {
     width: 100%;
     padding-top: 36px;
 
+    @media screen and (max-width: var.$mobile-width) {
+        padding-top: 0;
+        backdrop-filter: blur(100px);
+        height: 80px;
+    }
+
     div {
         margin: 0px 30px 0px 30px;
     }
@@ -20,7 +26,9 @@ header {
     div.container-logo {
         @media screen and (max-width: var.$mobile-width-xsm) {
             margin-left: 0;
-        }    
+            width: 100%;
+            padding-top: 30px;
+        }
     }
 
     .logo-title {
@@ -34,7 +42,7 @@ header {
 
         @media screen and (max-width: var.$mobile-width-xsm) {
             left: 84px;
-        }    
+        }
     }
 
     img {
@@ -44,7 +52,10 @@ header {
 
     .menu-mobile-section {
         color: var(--branco);
-        // margin-right: 56px;
+
+        @media screen and (max-width: var.$mobile-width-xsm) {
+            padding-top: 30px;
+        }
 
         span {
             transition: color 0.3s;

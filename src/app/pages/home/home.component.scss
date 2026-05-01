@@ -20,6 +20,12 @@ section.carousel {
     background-color: var(--azul-escuro-3);
     margin-top: -255px;
     z-index: 200;
+    
+    @media screen and (max-width: var.$mobile-width-sxsm) {
+        margin-top: -48vh;
+        padding-top: 40px;
+        padding-bottom: 130px;
+    }
 
     h1 {
         color: white;
@@ -314,23 +320,28 @@ section.eventos {
         color: white;
         font-size: 62px;
         transition: 0.3s color;
+
+        @media screen and (max-width: var.$mobile-width-sxsm) {
+            right: 1vh;
+            bottom: 25vh;
+        }
     }
 
     .volume-icon:hover {
-        cursor: pointer;        
+        cursor: pointer;
     }
 }
 
 .video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Aplica o desfoque intenso e escurece um pouco */
-  filter: blur(50px) brightness(70%);
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Aplica o desfoque intenso e escurece um pouco */
+    filter: blur(50px) brightness(70%);
+    z-index: 1;
 }
 
 .fill-video {
@@ -339,6 +350,10 @@ section.eventos {
     display: block;
     z-index: 2;
     position: relative;
-   // object-fit: cover;
+    // object-fit: cover;
     //object-position: center;
+
+    @media screen and (max-width: var.$mobile-width-sxsm) {
+        height: 838px;
+    }
 }
