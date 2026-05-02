@@ -6,7 +6,7 @@ header {
     justify-content: space-between;
     height: 70px; //48px;
     z-index: 1000;
-    position: relative;
+    position: absolute;
     background: transparent;
     left: 0;
     top: 0;
@@ -16,7 +16,13 @@ header {
     @media screen and (max-width: var.$mobile-width-xsm) {
         padding-top: 0;
         backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(100px);
         height: 80px;
+        position: absolute;        
+    }
+
+    @media screen and (max-width: var.$mobile-width) and (orientation: landscape) {
+        position: absolute;        
     }
 
     div {
@@ -42,6 +48,7 @@ header {
 
         @media screen and (max-width: var.$mobile-width-xsm) {
             left: 84px;
+            top: 3.5vh;
         }
     }
 

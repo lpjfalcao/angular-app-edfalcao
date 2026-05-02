@@ -2,7 +2,7 @@
 
 /* Usamos ::ng-deep porque o Owl Carousel gera tags HTML dinamicamente */
 :host ::ng-deep .owl-carousel .owl-item img {
-    height: 600px;
+    height: auto;
     /* Defina a altura que desejar */
     width: 90%;
     /* Garante que preencha a largura do slide */
@@ -11,7 +11,12 @@
     object-position: center;
     /* Garante que o centro da foto seja o foco */
     border-radius: 12px;
+
+    // @media screen and (max-width: var.$mobile-width-xsm) {        
+    //     height: 142px !important;   
+    // }
 }
+
 
 /* Container das setas */
 :host ::ng-deep .owl-nav {

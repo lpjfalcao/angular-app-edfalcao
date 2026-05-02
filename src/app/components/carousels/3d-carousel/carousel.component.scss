@@ -44,7 +44,7 @@
 .prev-btn,
 .next-btn {
     position: absolute;
-    top: 36%;
+    top: 30%;
     transform: translateY(-50%);
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5) !important;
@@ -66,3 +66,4 @@
 .next-btn {
     right: 5%;
 }
+

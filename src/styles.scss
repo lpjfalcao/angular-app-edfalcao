@@ -156,6 +156,19 @@ h3 {
     border-radius: 20px;
 }
 
+.u-overflow-hidden {
+    overflow-x: hidden;
+    contain: paint;
+}
+
+.u-height-320 {
+    height: 320px !important;
+}
+
+.u-height-142 {
+    height: 142px !important;   
+}
+
 .show-on-small {
     @media screen and (max-width: 1064px) {
         display: block !important;
@@ -164,6 +177,12 @@ h3 {
 
 .hide-on-small {
     @media screen and (max-width: 1064px) {
+        display: none !important;
+    }
+}
+
+.hide-on-small-landscape {
+    @media screen and (max-width: 1064px) and (orientation: landscape) {
         display: none !important;
     }
 }
@@ -178,7 +197,10 @@ h3 {
 mat-spinner {
     margin: 0 auto;
     margin-top: 12%;
-    top: 20vh;
+
+    @media screen and (max-width: var.$mobile-width-sxsm) {
+        top: 20vh;
+    }    
 }
 
 .mat-mdc-progress-spinner circle,

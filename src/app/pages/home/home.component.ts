@@ -17,6 +17,7 @@ import { environment } from '../../../environments/environment';
 import { HomeResponse } from '../../interfaces/responses/home.response';
 import { CommonService } from '../../shared/services/common.service';
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
+import { FlixViewModel } from '../../viewModels/flix.viewModel';
 
 @Component({
   selector: 'home',
@@ -52,17 +53,19 @@ export class HomeComponent {
   @ViewChild('meuVideo') _meuVideo!: ElementRef<HTMLVideoElement>;
   @ViewChild('videoBackground') _videoBackground!: ElementRef<HTMLVideoElement>;
 
+  flixViewModel: FlixViewModel[] = [];
   carouselText: string = 'Clique nas imagens para visualizar';
   carouselViewModel: CarouselViewModel[] = [];
+  destaquesViewModel: CarouselViewModel[] = [];
   carouselPrincipaisObraViewModel: CarouselViewModel[] = [];
   sobreViewModel!: SobreViewModel;
   eventosViewModel: EventoViewModel[] = [];
   hasError: boolean = false;
+  quantidadeItemsMobileDestaques = 1;
+  quantidadeItemsMobilePrincipaisObras = 4;
 
   constructor(private homeService: HomeService, public commonService: CommonService) {
   }
-
-
 
   ngOnInit() {
     this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe({
@@ -94,6 +97,11 @@ export class HomeComponent {
         imageUrl: item.Destaque.ImageUrl,
         title: item.Destaque.Title
       });
+
+      this.destaquesViewModel.push({
+        imageUrl: item.Destaque.ImageUrl,
+        title: item.Destaque.Title
+      });
     }
   }
 
@@ -108,6 +116,13 @@ export class HomeComponent {
     for (const item of homeData.homeObrasPrincipais) {
       this.carouselPrincipaisObraViewModel.push({
         imageUrl: item.Obra.ImageUrl
+      })
+    }
+
+    for (let i = 0; i < 3; i++) {
+      this.flixViewModel.push({
+        carousel: this.carouselPrincipaisObraViewModel,
+        title: 'Nome da categoria'
       })
     }
   }

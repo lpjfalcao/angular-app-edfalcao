@@ -1,30 +1,33 @@
-<div *ngIf="!isLoading && !hasError">
+<div *ngIf="!isLoading && !hasError" class="u-overflow-hidden">
     <section class="first-look">
         <div class="video-container">
-            <video autoplay muted loop class="fill-video" id="meuVideo" #meuVideo>
+            <video autoplay muted loop playsinline class="fill-video" id="meuVideo" #meuVideo>
                 <source src="/video/bio.mp4" type="video/mp4">
                 Seu navegador não suporta vídeos em HTML5.
             </video>
-            <video autoplay muted loop class="video-background" id="videoBackground" #videoBackground>
+            <video autoplay muted loop playsinline class="video-background" id="videoBackground" #videoBackground>
                 <source src="/video/bio.mp4" type="video/mp4">
             </video>
-            <span class="material-symbols-outlined volume-icon"
-                (click)=ligarSom() *ngIf="!somAtivado">
+            <span class="material-symbols-outlined volume-icon" (click)=ligarSom() *ngIf="!somAtivado">
                 volume_off
             </span>
 
-            <span class="material-symbols-outlined volume-icon"
-                (click)=desligarSom() *ngIf="somAtivado">
+            <span class="material-symbols-outlined volume-icon" (click)=desligarSom() *ngIf="somAtivado">
                 volume_up
             </span>
         </div>
     </section>
-    <section class="carousel u-top-radius">
+    <section class="carousel u-top-radius owl-carousel-destaques">
         <h1>Destaques</h1>
         <p class="hide-on-small">{{ carouselText }}</p>
-        <p class="hide-on-large">clique nas setas para ver as imagens</p>
+        <p class="hide-on-large">momentos importantes da minha trajetória</p>
         <carousel [carouselItems]="carouselViewModel" (onSetCarouselText)="setCarouselText($event)"
-            *ngIf="carouselViewModel.length > 0"></carousel>
+            *ngIf="carouselViewModel.length > 0" class="hide-on-small"></carousel>
+
+        <owl-carousel [carouselViewModel]="destaquesViewModel" *ngIf="destaquesViewModel.length > 0"
+            class="hide-on-large" [quantidadeItemsMobile]="quantidadeItemsMobileDestaques"
+            owlId="destaques"></owl-carousel>
+
     </section>
 
     <section class="show-on-small hide-on-large">
@@ -48,15 +51,15 @@
         </div>
     </section>
 
-    <section class="obras u-top-radius">
-        <h1><span class="hide-on-small">Principais </span><span class="u-dourado">Obras</span></h1>
-        <p>As obras de Ed Falcão unem arte, história e emoção. Com traços firmes e cores vibrantes, ele expressa a
-            força, a
-            espiritualidade
-            e a beleza do povo afro-brasileiro, transformando a memória cultural em arte viva.</p>
-
-        <owl-carousel [carouselViewModel]="carouselPrincipaisObraViewModel"
-            *ngIf="carouselPrincipaisObraViewModel.length > 0"></owl-carousel>
+    <section class="obras u-top-radius owl-carousel-obras">
+        <div *ngFor="let item of flixViewModel">
+            <h1 class="hide-on-small">{{ item.title }}</h1>
+            <h5 class="hide-on-large">{{ item.title }}</h5>
+            <owl-carousel [carouselViewModel]="item.carousel"
+                [quantidadeItemsMobile]="quantidadeItemsMobilePrincipaisObras"
+                *ngIf="item.carousel.length > 0"></owl-carousel>
+            <br /><br />
+        </div>
 
         <div class="button-container">
             <button mat-button (click)="commonService.goTo('/obras')">Ver todas as obras</button>

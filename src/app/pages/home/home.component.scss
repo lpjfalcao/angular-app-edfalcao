@@ -14,17 +14,17 @@ section,
 
 section.carousel {
     padding-top: 50px;
-    padding-bottom: 200px;
+    padding-bottom: 160px;
     height: 500px;
     color: var(--preto);
     background-color: var(--azul-escuro-3);
     margin-top: -255px;
     z-index: 200;
-    
+
     @media screen and (max-width: var.$mobile-width-sxsm) {
         margin-top: -48vh;
         padding-top: 40px;
-        padding-bottom: 130px;
+        padding-bottom: 86px;
     }
 
     h1 {
@@ -82,7 +82,7 @@ section.about {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 30px;
-
+        margin-top: -76px;
 
         p {
             font-size: var.$font-size-20;
@@ -152,8 +152,19 @@ section.obras {
     }
 
     @media screen and (max-width: var.$mobile-width) {
-        padding-right: 90px;
+        padding-right: 0;
+        padding-left: 0;
         grid-template-columns: auto;
+
+        .button-container {
+            margin-top: 0;
+        }
+        
+
+        h5 {
+            color: var(--branco);
+            padding-left: 22px;
+        }
 
         h3,
         h1 {
@@ -162,13 +173,22 @@ section.obras {
 
         p {
 
-            font-size: var.$font-size-20
+            font-size: var.$font-size-20;
+            padding: 20px;
         }
     }
 
 
-    @media screen and (max-width: var.$mobile-width-sm) {
-        padding-right: 50px;
+    @media screen and (max-width: var.$mobile-width-xsm) {
+        h1 {
+            margin-bottom: 0;
+        }
+
+        p {
+
+            font-size: var.$font-size-20;
+            padding: 20px;
+        }
     }
 
     .obras-grid {
@@ -310,7 +330,7 @@ section.eventos {
     position: relative;
     top: -220px;
     z-index: 100;
-    max-height: 920px;
+    //max-height: 920px;
 
     .volume-icon {
         position: absolute;
@@ -346,7 +366,7 @@ section.eventos {
 
 .fill-video {
     width: 100%;
-    height: 920px;
+    height: 131vh;
     display: block;
     z-index: 2;
     position: relative;
