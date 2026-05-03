@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './shared/header/header.component';
 import { CarouselComponent } from './components/carousels/3d-carousel/carousel.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,15 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatDividerModule,
     MatButtonModule,
     CarouselComponent,
-    FooterComponent 
+    FooterComponent,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'angular-app-edfalcao';
+  emManutencao: boolean = false;
 
   ngOnInit() {
     console.log(`

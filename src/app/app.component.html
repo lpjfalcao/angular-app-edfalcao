@@ -1,6 +1,9 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
-
-
-
+@if (!emManutencao) {
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+}
+@else {
+    <div class="manutencao" *ngIf="emManutencao">
+        <img src="/img/manutencao.jpg" />
+    </div>
+}

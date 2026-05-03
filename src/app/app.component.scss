@@ -1,0 +1,15 @@
+@use '../variables.scss' as var;
+
+.manutencao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+
+
+    @media screen and (max-width: var.$mobile-width-xsm) {
+        img {
+            width: 400px;
+        }
+    }
+}
