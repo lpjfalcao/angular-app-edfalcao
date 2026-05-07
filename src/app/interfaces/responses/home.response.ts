@@ -3,6 +3,7 @@ export interface HomeResponse {
   homeDestaques: HomeDestaqueContainer[];
   homeEventos: HomeEventoContainer[];
   homeObrasPrincipais: HomeObraContainer[];
+  homeObrasFlix: HomeObraContainer[];
 }
 
 // --- Seção Bio ---
@@ -47,4 +48,5 @@ export interface HomeObraContainer {
 
 export interface ObraContent {
   ImageUrl: string;
+  Categoria: string;
 }

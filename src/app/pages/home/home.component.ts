@@ -14,7 +14,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/owl-carousel.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../../../environments/environment';
-import { HomeResponse } from '../../interfaces/responses/home.response';
+import { HomeObraContainer, HomeResponse } from '../../interfaces/responses/home.response';
 import { CommonService } from '../../shared/services/common.service';
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 import { FlixViewModel } from '../../viewModels/flix.viewModel';
@@ -113,18 +113,23 @@ export class HomeComponent {
   }
 
   carregarObrasPrincipais(homeData: HomeResponse) {
-    for (const item of homeData.homeObrasPrincipais) {
-      this.carouselPrincipaisObraViewModel.push({
+    const obrasOleoSobreTela = homeData.homeObrasFlix.filter(item => item.Obra.Categoria == 'oleo-sobre-tela');
+    this.carregarObrasFlix(obrasOleoSobreTela, 'Óleo sobre tela');    
+  }
+
+  carregarObrasFlix(obras: HomeObraContainer[], categoria: string) {
+    const carousel: CarouselViewModel[] = [];
+    
+    for (const item of obras) {
+      carousel.push({
         imageUrl: item.Obra.ImageUrl
-      })
+      });
     }
 
-    for (let i = 0; i < 3; i++) {
-      this.flixViewModel.push({
-        carousel: this.carouselPrincipaisObraViewModel,
-        title: 'Nome da categoria'
-      })
-    }
+    this.flixViewModel.push({
+      carousel: carousel,
+      title: categoria
+    });
   }
 
   carregarEventos(homeData: HomeResponse) {
