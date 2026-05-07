@@ -21,7 +21,7 @@ export class OwlCarouselComponent {
   customOptions: OwlOptions = {
     nav: true,
     loop: true,
-    autoplay: false,
+    autoplay: true,
     center: true,
     dots: false,
     autoHeight: true,
@@ -90,7 +90,7 @@ export class OwlCarouselComponent {
     if (this.isMobile) {
       carouselItems.forEach(image => {
         if (this.owlId != 'destaques') {
-          image.classList.remove('u-height-320');
+          image.classList.remove('u-height-620');
           image.classList.add('u-height-142');
         }
       });
@@ -120,7 +120,7 @@ export class OwlCarouselComponent {
   setWebStyles() {
     const carouselItems = document.querySelectorAll('.owl-carousel .owl-item img') as NodeListOf<HTMLImageElement>;
     carouselItems.forEach(image => {
-      image.classList.add('u-height-320');
+      image.classList.add('u-height-620');
     });
   }
 

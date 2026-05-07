@@ -360,7 +360,7 @@ section.eventos {
     height: 100%;
     object-fit: cover;
     /* Aplica o desfoque intenso e escurece um pouco */
-    filter: blur(50px) brightness(70%);
+    filter: blur(20px) brightness(70%);
     z-index: 1;
 }
 

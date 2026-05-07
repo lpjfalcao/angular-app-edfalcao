@@ -6,9 +6,9 @@
     /* Defina a altura que desejar */
     width: 90%;
     /* Garante que preencha a largura do slide */
-    object-fit: cover;
+    // object-fit: cover;
     /* Recorta a imagem para preencher sem distorcer */
-    object-position: center;
+    object-position: top;
     /* Garante que o centro da foto seja o foco */
     border-radius: 12px;
 

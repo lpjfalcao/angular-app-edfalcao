@@ -42,9 +42,10 @@ export class ObrasComponent {
   carregarObras() {
     this.obrasService.getObras(`${environment.api.baseUrl}/obras`).subscribe({
       next: (obraResponse: any) => {
+        let obraId = 0;
         for (const item of obraResponse.obras) {
           this.lightboxImagemViewModel.push({
-            id: item.Id,
+            id: ++obraId,
             imageUrl: item.Obra.ImageUrl
           });
         }
