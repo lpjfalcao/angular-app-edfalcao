@@ -115,7 +115,10 @@ export class HomeComponent {
 
   carregarObrasPrincipais(homeData: HomeResponse) {
     const obrasOleoSobreTela = homeData.homeObrasFlix.filter(item => item.Obra.Categoria == 'oleo-sobre-tela');
-    this.carregarObrasFlix(obrasOleoSobreTela, 'Óleo sobre tela');
+    const abstratos = homeData.homeObrasFlix.filter(item => item.Obra.Categoria == 'abstrato');
+
+    this.carregarObrasFlix(obrasOleoSobreTela, 'Óleo Sobre Tela');
+    this.carregarObrasFlix(abstratos, 'Abstratos');
   }
 
   carregarObrasFlix(obras: HomeObraContainer[], categoria: string) {

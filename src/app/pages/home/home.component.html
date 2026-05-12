@@ -52,9 +52,10 @@
     </section>
 
     <section class="obras u-top-radius owl-carousel-obras">
+        <h1 claass="principais-obras">Principais <span class="u-dourado">Obras</span></h1>
         <div *ngFor="let item of flixViewModel">
-            <h1 class="hide-on-small">{{ item.title }}</h1>
             <h5 class="hide-on-large">{{ item.title }}</h5>
+            <h3 class="hide-on-small">{{ item.title }}</h3>
             <owl-carousel [carouselViewModel]="item.carousel"
                 [quantidadeItemsMobile]="quantidadeItemsMobilePrincipaisObras"
                 *ngIf="item.carousel.length > 0"></owl-carousel>
