@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { HostListener, Injectable, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainMenuViewModel } from '../../viewModels/mainMenu.viewModel';
 
@@ -27,4 +27,19 @@ export class CommonService {
     //this.activeMenu();
   }
 
+  setHeaderStyles() {
+    const pathname = window.location.pathname;
+    const header = document.querySelector('header');
+
+    if (header) {
+      if (pathname.includes('/obras')) {
+        header.style.background = '#2B5A8E';
+        header.style.height = window.innerWidth > 1024 ? '57px' : '90px';
+      }
+      else {
+        header.style.background = 'transparent';
+        header.style.height = window.innerWidth > 1024 ? '70px' : '90px';
+      }
+    }
+  }
 }

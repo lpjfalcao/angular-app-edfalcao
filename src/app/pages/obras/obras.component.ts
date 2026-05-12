@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.component';
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
+import { CommonService } from '../../shared/services/common.service';
 
 @Component({
   selector: 'obras',
@@ -26,10 +27,11 @@ export class ObrasComponent {
   isLoading: boolean = true;
   hasError: boolean = false;
 
-  constructor(private lightboxService: LightboxService, private obrasService: ObrasService, private router: Router) {
+  constructor(private lightboxService: LightboxService, private obrasService: ObrasService, private router: Router, private commonService: CommonService) {
 
   }
 
+  
   ngOnInit() {
     this.carregarObras();
   }
@@ -39,7 +41,14 @@ export class ObrasComponent {
     this.lightboxService.open();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    console.log('redimensionado');
+    this.commonService.setHeaderStyles();
+  }
+
   carregarObras() {
+    this.commonService.setHeaderStyles();
     this.obrasService.getObras(`${environment.api.baseUrl}/obras`).subscribe({
       next: (obraResponse: any) => {
         let obraId = 0;
@@ -59,7 +68,7 @@ export class ObrasComponent {
           }
           return 0;
         });
-
+       
         setTimeout(() => {
           this.isLoading = false;
         }, environment.isLoadingTimeout);

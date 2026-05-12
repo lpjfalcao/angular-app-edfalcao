@@ -1,10 +1,15 @@
+@use '../../../variables.scss' as var;
+
 .breadcrumb-container {
     display: flex;
     justify-content: space-between;
     padding: 40px;
-    padding-bottom: 0;
     padding-left: 50px;
     padding-right: 60px;
+
+    @media screen and (max-width: var.$mobile-width) {
+        padding-bottom: 2vh;
+    }
 
     .left-arrow-icon {
         cursor: pointer;
@@ -19,4 +24,6 @@
     h6 {
         font-weight: bold;
     }
+
+    
 }

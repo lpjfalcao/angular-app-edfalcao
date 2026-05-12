@@ -1,3 +1,5 @@
+@use '../../../../variables.scss' as var;
+
 .menu-mobile-container {
     position: fixed;
     z-index: 1000;
@@ -6,12 +8,22 @@
     background-color: var(--branco);
     top: 0;
     left: -400px;
-    transition: left 0.3s;
+    transition: left 0.5s;
+
+    @media screen and (max-width: var.$mobile-width) {
+        width: 100%;
+        left: -1000px;
+    }
 
     .menu-mobile-grid {
-        margin: 30px 50px 0px 50px;
-        display: grid;
-        grid-template-columns: auto auto;
+        .menu-mobile-icon-container {
+            width: 100%;
+            margin-bottom: 30px;
+
+        }
+
+        margin: 10px 20px 0px 50px;
+        display: flex;
 
         div {
             .logo-title {
@@ -31,8 +43,8 @@
             .close-icon {
                 display: inline-grid;
                 float: right;
-                padding-top: 30px;
                 transition: color 0.3s;
+                font-size: 32px;
             }
 
             .close-icon:hover {

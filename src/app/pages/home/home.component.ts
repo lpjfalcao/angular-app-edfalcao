@@ -68,6 +68,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+    this.commonService.setHeaderStyles();
     this.homeService.getHomeData(`${environment.api.baseUrl}/home`).subscribe({
       next: (homeData: any) => {
         this.carregarDestaques(homeData);
@@ -114,12 +115,12 @@ export class HomeComponent {
 
   carregarObrasPrincipais(homeData: HomeResponse) {
     const obrasOleoSobreTela = homeData.homeObrasFlix.filter(item => item.Obra.Categoria == 'oleo-sobre-tela');
-    this.carregarObrasFlix(obrasOleoSobreTela, 'Óleo sobre tela');    
+    this.carregarObrasFlix(obrasOleoSobreTela, 'Óleo sobre tela');
   }
 
   carregarObrasFlix(obras: HomeObraContainer[], categoria: string) {
     const carousel: CarouselViewModel[] = [];
-    
+
     for (const item of obras) {
       carousel.push({
         imageUrl: item.Obra.ImageUrl

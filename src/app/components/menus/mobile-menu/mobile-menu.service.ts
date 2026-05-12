@@ -14,6 +14,6 @@ export class MobileMenuService {
 
     public closeMenuMobile() {
         const menuMobile = document.querySelector('.menu-mobile-container') as HTMLElement;
-        menuMobile.style.left = '-400px';        
+        menuMobile.style.left = '-1000px';        
     }
 }

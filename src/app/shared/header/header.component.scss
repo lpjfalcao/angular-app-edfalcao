@@ -18,11 +18,11 @@ header {
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
         height: 80px;
-        position: absolute;        
+        position: absolute;
     }
 
     @media screen and (max-width: var.$mobile-width) and (orientation: landscape) {
-        position: absolute;        
+        position: absolute;
     }
 
     div {
@@ -33,7 +33,7 @@ header {
         @media screen and (max-width: var.$mobile-width-xsm) {
             margin-left: 0;
             width: 100%;
-            padding-top: 30px;
+            padding-top: 0;
         }
     }
 
@@ -48,13 +48,26 @@ header {
 
         @media screen and (max-width: var.$mobile-width-xsm) {
             left: 84px;
-            top: 3.5vh;
+            top: 4.5vh;
         }
     }
 
     img {
-        margin-top: -32px;
-        position: absolute;
+        //margin-top: -32px;
+
+        height: 199px;
+        margin-top: -69px;
+        margin-left: -7vh;
+
+        @media screen and (max-width: var.$mobile-width) {
+            height: 169px;
+            margin-left: -4vh;
+            margin-top: -31px;
+        }
+
+        @media screen and (max-width: var.$mobile-width) and (orientation: landscape) {
+             margin-top: -50px;
+        }
     }
 
     .menu-mobile-section {
