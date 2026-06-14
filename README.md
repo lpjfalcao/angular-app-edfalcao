@@ -33,5 +33,5 @@ Before you begin, ensure you have the following installed on your local machine:
 * **Angular CLI** installed globally (optional, but recommended):
   ```bash
   npm install -g @angular/cli
- ```
+
 
