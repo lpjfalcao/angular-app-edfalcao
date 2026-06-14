@@ -16,11 +16,22 @@ This is a modern web application built using the **Angular** ecosystem. The proj
 
 ---
 
+## 🛠️ Setup
+
+Follow these steps on your terminal to run the project:
+
+* run **npm install** to download dependencies
+* run **ng serve --o** to start local server and open application in the browser
+
+---
+
 ## 🛠️ Prerequisites
 
 Before you begin, ensure you have the following installed on your local machine:
 * **Node.js** (LTS version recommended)
 * **npm** (Node package manager)
 * **Angular CLI** installed globally (optional, but recommended):
-```bash
+  ```bash
   npm install -g @angular/cli
+ ```
+
