@@ -1,0 +1,84 @@
+
+<section class="event-list">
+
+  <div class="event-list__header">
+    <h2>{{ title }}</h2>
+    <span class="event-list__header-line"></span>
+  </div>
+
+  <div class="event-list__content" *ngIf="events.length > 0; else emptyState">
+
+    <a
+      class="event-card"
+      *ngFor="let event of events"
+      [href]="event.link"
+      [attr.aria-label]="'Ver evento: ' + event.title">
+
+      <div class="event-card__image">
+        <img
+          [src]="event.image"
+          [alt]="event.title"
+          loading="lazy">
+      </div>
+
+      <div class="event-card__info">
+
+        <span class="event-card__category">
+          {{ event.category }}
+        </span>
+
+        <h3>{{ event.title }}</h3>
+
+        <div class="event-card__location">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+
+          </svg>
+
+          <span>{{ event.location }}</span>
+        </div>
+
+      </div>
+
+      <div class="event-card__action">
+        <span>Ver evento</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+
+        </svg>
+      </div>
+
+    </a>
+
+  </div>
+
+  <ng-template #emptyState>
+    <div class="event-list__empty">
+      <p>Nenhum evento disponível no momento.</p>
+    </div>
+  </ng-template>
+
+</section>

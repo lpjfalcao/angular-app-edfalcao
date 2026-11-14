@@ -57,6 +57,7 @@
             <h5 class="hide-on-large">{{ item.title }}</h5>
             <h3 class="hide-on-small">{{ item.title }}</h3>
             <owl-carousel [carouselViewModel]="item.carousel"
+                [quantidadeItens]="4"
                 [quantidadeItemsMobile]="quantidadeItemsMobilePrincipaisObras"
                 *ngIf="item.carousel.length > 0"></owl-carousel>
             <br /><br />

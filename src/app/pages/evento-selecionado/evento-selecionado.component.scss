@@ -2,6 +2,7 @@
 
 section.main {
     padding-top: 90px;
+    padding-bottom: 90px;
     background-color: var(--azul-escuro-3);
     height: 100%;
 
@@ -45,16 +46,19 @@ section.main {
     color: white;
     padding-left: 80px;
     padding-right: 80px;
+    padding-top: 40px;
 
     /* Mobile Styles */
     @media screen and (max-width: var.$mobile-width) {
         grid-template-columns: auto;
         padding: 10px;
+
+        .main-grid-right {
+            margin-left: 0 !important;
+        }
     }
 
-    .main-grid-left {
-        
-    }
+    .main-grid-left {}
 
     .main-grid-right {
         margin-left: 30px;
@@ -66,15 +70,15 @@ section.main {
 }
 
 .flex-container-imagem {
-     display: flex;
-     flex-direction: row;
-     justify-content: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
 
-     img {
+    img {
         width: 100%;
         height: auto;
         border-radius: 14px;
-     }
+    }
 }
 
 .text-section {

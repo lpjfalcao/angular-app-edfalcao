@@ -13,47 +13,81 @@ import { CommonModule } from '@angular/common';
 export class OwlCarouselComponent {
   @Input() carouselViewModel!: CarouselViewModel[];
   @Input() quantidadeItemsMobile!: number;
+  @Input() quantidadeItens!: number;
+  @Input() mostrarIndicadores: boolean = false;
   @Input() owlId!: string;
 
   isMobile: boolean = false;
   currentWidth: number;
+  customOptions!: OwlOptions;
 
-  customOptions: OwlOptions = {
-    nav: true,
-    loop: true,
-    autoplay: false,
-    center: true,
-    dots: false,
-    autoHeight: true,
-    autoWidth: true,
-    autoplayTimeout: 3000,    // Tempo de espera (3000ms = 3 segundos)
-    autoplaySpeed: 800,
-    responsive: {
-      0: {
-        items: this.quantidadeItemsMobile,
-      },
-      600: {
-        items: 1,
-      },
-      1000: {
-        items: 4,
-      }
-    },
-    navText: [
-      `<span class="material-symbols-outlined material-icon">
-    chevron_left
-  </span>`,
-      `<span class="material-symbols-outlined material-icon">
-    chevron_right
-  </span>`
-    ],
-  }
+  // customOptions: OwlOptions = {
+  //   nav: true,
+  //   loop: true,
+  //   autoplay: false,
+  //   center: true,
+  //   dots: false,
+  //   autoHeight: true,
+  //   autoWidth: true,
+  //   autoplayTimeout: 3000,    // Tempo de espera (3000ms = 3 segundos)
+  //   autoplaySpeed: 800,
+  //   responsive: {
+  //     0: {
+  //       items: this.quantidadeItemsMobile,
+  //     },
+  //     600: {
+  //       items: 1,
+  //     },
+  //     1000: {
+  //       items: this.quantidadeItens,
+  //     }
+  //   },
+  //   navText: [
+  //     `<span class="material-symbols-outlined material-icon">
+  //   chevron_left
+  // </span>`,
+  //     `<span class="material-symbols-outlined material-icon">
+  //   chevron_right
+  // </span>`
+  //   ],
+  //}
 
   constructor() {
     this.currentWidth = window.innerWidth;
   }
 
   ngOnInit() {
+    this.customOptions = {
+      nav: true,
+      loop: true,
+      autoplay: false,
+      center: true,
+      dots: this.mostrarIndicadores,
+      autoHeight: true,
+      autoWidth: true,
+      autoplayTimeout: 3000,    // Tempo de espera (3000ms = 3 segundos)
+      autoplaySpeed: 800,
+      responsive: {
+        0: {
+          items: this.quantidadeItemsMobile,
+        },
+        600: {
+          items: 1,
+        },
+        1000: {
+          items: this.quantidadeItens,
+        }
+      },
+       navText: [
+      `<span class="material-symbols-outlined material-icon">
+        chevron_left
+      </span>`,
+          `<span class="material-symbols-outlined material-icon">
+        chevron_right
+      </span>`
+    ],
+    }
+
     if (this.customOptions && this.customOptions.responsive) {
       this.customOptions.responsive['0'].items = this.quantidadeItemsMobile;
       this.customOptions.responsive['600'].items = this.quantidadeItemsMobile;
@@ -81,7 +115,7 @@ export class OwlCarouselComponent {
       this.hideNavIcons();
     }
     else {
-        this.setWebStyles();
+      this.setWebStyles();
     }
   }
 
@@ -119,8 +153,23 @@ export class OwlCarouselComponent {
 
   setWebStyles() {
     const carouselItems = document.querySelectorAll('.owl-carousel .owl-item img') as NodeListOf<HTMLImageElement>;
+    const pathname = window.location.pathname;
+    const navs = document.querySelectorAll('.owl-carousel  .owl-nav') as NodeListOf<HTMLElement>;
+    const previousIcon = document.querySelector('.owl-prev') as HTMLElement;
+    const nextIcon = document.querySelector('.owl-next') as HTMLElement;
+
     carouselItems.forEach(image => {
-      image.classList.add('u-height-620');
+      if (!pathname.includes('/eventos')) {
+        image.classList.add('u-height-620');
+      } 
+      else {
+          navs.forEach(nav => {
+            nav.style.top = '40%';            
+          });
+
+          previousIcon.style.left = '-26px';
+          previousIcon.style.position = 'relative';
+      }     
     });
   }
 

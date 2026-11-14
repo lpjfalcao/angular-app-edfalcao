@@ -1,7 +1,7 @@
 <!-- <message-box></message-box> -->
 
 <section class="main">
-    <breadcrumb title="Evento Selecionado" strokeColor="1px white"></breadcrumb>
+    <breadcrumb title="I Expo Baixada" strokeColor="1px white"></breadcrumb>
 
     <div class="main-grid">
         <div class="main-grid-left">
@@ -10,7 +10,6 @@
             </div>
 
             <section class="text-section">
-                <h5>I Expo Baixada</h5>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae sem imperdiet, volutpat
                     mi
@@ -49,16 +48,18 @@
                     Vestibulum in mollis nisi.
                 </p>
             </section>
+
+            <section class="hide-on-small">
+                <h1>Fotos</h1>
+                <owl-carousel [carouselViewModel]="carouselItems" [quantidadeItemsMobile]="1" [quantidadeItens]="3"
+                    [mostrarIndicadores]="true"></owl-carousel>
+            </section>
         </div>
         <div class="main-grid-right">
-            Lista de eventos aqui
+            <aside class="exhibition-layout__events">
+                <app-event-list [events]="events" title="Agenda de Eventos">
+                </app-event-list>
+            </aside>
         </div>
     </div>
-
-
-
-    <!-- <section>
-        <h1>Carousel</h1>
-        <owl-carousel [carouselViewModel]="carouselItems" [quantidadeItemsMobile]="1"></owl-carousel>
-    </section> -->
 </section>

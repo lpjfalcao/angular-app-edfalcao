@@ -72,6 +72,10 @@
     border-radius: 20px !important;
 }
 
+:host ::ng-deep .owl-dots {
+    margin-top: 20px !important;
+} 
+
 @media screen and (max-width: var.$mobile-width) {
     ::ng-deep .owl-carousel {
         margin-left: 20px;
