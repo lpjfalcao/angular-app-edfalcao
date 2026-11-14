@@ -32,7 +32,7 @@ export class AppComponent {
 
   ngOnInit() {
     console.log(`
-      Versão: 1.0.1 \n
-      Publicada em: 09/04/2026`);
+      Versão: 1.0.2 \n
+      Publicada em: 29/05/2026`);
   }
 }

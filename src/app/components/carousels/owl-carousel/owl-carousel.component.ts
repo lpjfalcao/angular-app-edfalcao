@@ -21,7 +21,7 @@ export class OwlCarouselComponent {
   customOptions: OwlOptions = {
     nav: true,
     loop: true,
-    autoplay: true,
+    autoplay: false,
     center: true,
     dots: false,
     autoHeight: true,

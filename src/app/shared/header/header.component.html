@@ -1,10 +1,10 @@
 <header #minhaHeaderCamarada>
-    <div class="container-logo">
-        <img src="/img/logo-falcao.png" />
+    <div class="container-logo u-pointer">
+        <img src="/img/logo-falcao.png" (click)="commonService.goTo('/home')" />
         <!-- <span class="logo-title hide-on-small-landscape">Ed Falcão</span> -->
     </div>
 
-    <div class="menu-mobile-section" id="menuMobile" (click)="mobileMenuService.openMenuMobile()" #btnToggle>
+    <div class="menu-mobile-section u-pointer" id="menuMobile" (click)="mobileMenuService.openMenuMobile()" #btnToggle>
         <span class="material-symbols-outlined">
             menu
         </span>

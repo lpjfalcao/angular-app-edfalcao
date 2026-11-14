@@ -12,5 +12,5 @@ import { MatChipsModule } from '@angular/material/chips';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorMessageComponent {
-  longText = `Ocorreu um erro ao carregar esta página. Tente novamente mais tarde!`;
+  longText = `Ocorreu um erro ao carregar esta página. Tente novamente mais tarde!`;  
 }

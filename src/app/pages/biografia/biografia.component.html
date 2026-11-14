@@ -1,39 +1,56 @@
 <div *ngIf="!isLoading && !hasError">
-<section class="biografia-container">
-    <breadcrumb title="Biografia" strokeColor="1px white"></breadcrumb>
-
-    <div class="row" *ngIf="sobre" style="padding-top: 60px">
-        <div class="col-lg-6 col-md-12 col-edfalcao-img">
-            <img [src]="sobre.imageUrl" class="img-edfalcao" />
-            <section>
-                <h3>Sobre o artista <span class="u-dourado">Ed Falcão</span></h3>
-                <div class="bio-descricao" [innerHTML]="sobre.bio"></div>
-            </section>
-        </div>
-        <div class="col-lg-6 col-md-12">
-            <div>
-                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg"
-                    class="img-destaque" />
+    <section class="biografia-container">
+        <breadcrumb title="Biografia" strokeColor="1px white"></breadcrumb>
+        <div class="row" *ngIf="sobre" style="padding-top: 60px">
+            <div class="col-lg-6 col-md-12 col-edfalcao-img">
+                <img [src]="sobre.imageUrl" class="img-edfalcao" />
+                <section>
+                    <h3>Sobre o artista <span class="u-dourado">Ed Falcão</span></h3>
+                    <div class="bio-descricao" [innerHTML]="sobre.bio"></div>
+                </section>
             </div>
-            <div>
-                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg"
-                    class="img-destaque " />
+            <div class="col-lg-6 col-md-12">
+                <div>
+                    <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-3.jpg"
+                        class="img-destaque" />
+                </div>
+                <div>
+                    <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-4.jpg"
+                        class="img-destaque " />
+                </div>
+
+                <div>
+                    <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/biografia/pai+e+tios.jpg"
+                        class="img-destaque " />
+                </div>
+
+                <div>
+                    <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/biografia/pai+e+padrinho.jpg"
+                        class="img-destaque " />
+                </div>
+
+                <!-- <div>
+                    <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/biografia/pai+e+tio+e+vivi.jpg"
+                        class="img-destaque " />
+                </div> -->
             </div>
         </div>
-    </div>
 
-    <div class="row rol-3">
-        <div class="col-lg-4 col-md-12">
-            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg" class="img-destaque-x" />
+        <div class="row rol-3">
+            <div class="col-lg-4 col-xs-12">
+                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg"
+                    class="img-destaque-x" />
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-1.jpg"
+                    class="img-destaque-x" />
+            </div>
+            <div class="col-lg-4 col-xs-12">
+                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg"
+                    class="img-destaque-x" />
+            </div>
         </div>
-        <div class="col-lg-4 col-xs-12">
-            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-2.jpg" class="img-destaque-x" />
-        </div>
-        <div class="col-lg-4 col-xs-12">
-            <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/destaques/academico-5.jpg" class="img-destaque-x" />
-        </div>
-    </div>
-</section>
+    </section>
 </div>
 
 <div *ngIf="hasError">

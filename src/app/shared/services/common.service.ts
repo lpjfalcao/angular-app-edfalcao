@@ -32,7 +32,7 @@ export class CommonService {
     const header = document.querySelector('header');
 
     if (header) {
-      if (pathname.includes('/obras')) {
+      if (pathname.includes('/obras') || pathname.includes('/premiacoes') || pathname.includes('/eventos') || pathname.includes('/biografia') || pathname.includes('/eventos')) {
         header.style.background = '#2B5A8E';
         header.style.height = window.innerWidth > 1024 ? '57px' : '90px';
       }

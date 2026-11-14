@@ -6,6 +6,12 @@
     padding: 40px;
     padding-left: 50px;
     padding-right: 60px;
+    z-index: 1000;
+    position: relative;
+
+    a:link, a:visited {
+        color: var(--branco);
+    }
 
     @media screen and (max-width: var.$mobile-width) {
         padding-bottom: 2vh;
@@ -23,7 +29,5 @@
 
     h6 {
         font-weight: bold;
-    }
-
-    
+    }    
 }

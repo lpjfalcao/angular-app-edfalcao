@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MessageBoxComponent } from '../../shared/message-box/message-box.component';
+import { CommonService } from '../../shared/services/common.service';
 
 @Component({
   selector: 'premiacoes',
@@ -9,5 +10,10 @@ import { MessageBoxComponent } from '../../shared/message-box/message-box.compon
   styleUrl: './premiacoes.component.scss'
 })
 export class PremiacoesComponent {
+  constructor(private commonService: CommonService) {
+  }
 
+  ngOnInit() {
+      this.commonService.setHeaderStyles();
+  }
 }

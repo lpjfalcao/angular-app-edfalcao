@@ -7,6 +7,7 @@ import { ClickOutsideDirective } from '../../directives/clickOutside.directive';
 import { MobileMenuService } from '../../components/menus/mobile-menu/mobile-menu.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CommonService } from '../services/common.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(public mobileMenuService: MobileMenuService, private router: Router) {
+  constructor(public mobileMenuService: MobileMenuService, private router: Router, public commonService: CommonService) {
   }
 
   goToHome() {
