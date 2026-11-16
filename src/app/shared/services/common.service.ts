@@ -34,7 +34,7 @@ export class CommonService {
     if (header) {
       if (pathname.includes('/obras') || pathname.includes('/premiacoes') || pathname.includes('/eventos') || pathname.includes('/biografia') || pathname.includes('/eventos')) {
         header.style.background = '#2B5A8E';
-        header.style.height = window.innerWidth > 1024 ? '57px' : '90px';
+        header.style.height = window.innerWidth > 700 ? '57px' : '90px';
       }
       else {
         header.style.background = 'transparent';

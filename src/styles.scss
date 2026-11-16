@@ -215,4 +215,8 @@ mat-spinner {
 .texto-em-destaque {
     font-size: 60px;
     color: transparent;
+
+     @media screen and (max-width: var.$mobile-width-sm) {
+        font-size: 30px;
+    }    
 }

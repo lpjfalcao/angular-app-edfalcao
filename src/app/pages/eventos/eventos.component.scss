@@ -90,3 +90,57 @@ section.main {
         font-weight: bold;
     }
 }
+
+section.eventos {
+    background-color: var(--azul-escuro-3);
+    padding: 250px;
+    padding-top: 50px;
+    padding-bottom: 130px;
+
+    mat-card {
+        height: 100%;
+    }
+
+    // .row {
+    //     padding-left: 200px;
+    //     padding-right: 200px;
+    // }
+
+    h3,
+    h1 {
+        color: var(--branco);
+    }
+
+    h5 {
+        margin-top: 20px;
+        height: auto;
+    }
+
+    button {
+        font-family: 'Font Hero', sans-serif !important;
+    }
+
+    .button-container {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            background: linear-gradient(45deg, var(--dourado) 10%, var(--dourado-2) 90%);
+            color: var(--branco);
+            width: 200px;
+        }
+    }
+
+    @media screen and (max-width: var.$mobile-width-sm) {
+        padding: 10px;
+
+        h5 {
+            height: auto;
+        }
+
+        .row {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

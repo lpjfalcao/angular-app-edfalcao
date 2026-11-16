@@ -40,7 +40,7 @@ export class EventoSelecionadoComponent {
   events: EventItem[] = [
     {
       id: 1,
-      title: 'Mostra de Arte Contemporânea',
+      title: 'Mostra de Arte',
       category: 'Exposição',
       location: 'Centro Cultural de Nova Iguaçu',
       image: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
