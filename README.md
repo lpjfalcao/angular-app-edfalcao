@@ -1,27 +1,37 @@
-# AngularAppEdfalcao
+# 🚀 edfalcao.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+Visit the website at [edfalcao.com](https://edfalcao.com) to see this project launched.
 
-## Development server
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📝 Project Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This is a modern web application built using the **Angular** ecosystem. The project was developed following best practices in software architecture, modular component design, and responsiveness, focusing on high performance, reusable components, and a smooth, intuitive user experience.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Setup
 
-## Running unit tests
+Follow these steps on your terminal to run the project:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* run **npm install** to download dependencies
+* run **ng serve --o** to start local server and open application in the browser
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ Prerequisites
 
-## Further help
+Before you begin, ensure you have the following installed on your local machine:
+* **Node.js** (LTS version recommended)
+* **npm** (Node package manager)
+* **Angular CLI** installed globally (optional, but recommended):
+  ```bash
+  npm install -g @angular/cli
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
