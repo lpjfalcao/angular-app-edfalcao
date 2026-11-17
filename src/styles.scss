@@ -135,6 +135,10 @@ h3 {
     cursor: pointer;
 }
 
+.u-no-events {
+    pointer-events: none;
+}
+
 .u-top-radius {
     border-top-left-radius: 45px;
     border-top-right-radius: 45px;

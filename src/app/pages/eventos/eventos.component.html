@@ -1,7 +1,7 @@
 <!-- <message-box></message-box> -->
 
 <section class="main" *ngIf="!isLoading && !hasError">
-    <breadcrumb title="Eventos" strokeColor="1px white" backUrl="/eventos"></breadcrumb>
+    <breadcrumb title="Eventos" strokeColor="1px white" backUrl="/eventos" whereAmI="Home > Eventos"></breadcrumb>
     <section class="eventos">
         <div class="row">
             <div class="col-md-12 col-lg-6" *ngFor="let item of eventoContainerViewModel" style="margin-bottom: 40px;">

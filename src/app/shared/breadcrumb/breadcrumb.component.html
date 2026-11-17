@@ -1,10 +1,18 @@
 <div class="breadcrumb-container">
-    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25" class="icon-breadcrumb-container">
-        <a routerLink="/home">
-            <span class="material-symbols-outlined left-arrow-icon">
-                arrow_left_alt
-            </span>
-        </a>
+    <div matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="25"
+        class="icon-breadcrumb-container">
+        <div class="flex-container">
+            <div>
+                <a routerLink="/home">
+                    <span class="material-symbols-outlined left-arrow-icon">
+                        arrow_left_alt
+                    </span>
+                </a>
+            </div>
+            <div class="u-no-events u-white">
+                <span>{{ whereAmI }}</span>
+            </div>
+        </div>
     </div>
     <div id="label-galeria">
         <span class="texto-em-destaque" [ngStyle]="{'-webkit-text-stroke': strokeColor}">{{ title }}</span>

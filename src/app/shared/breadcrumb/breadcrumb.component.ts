@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 export class BreadcrumbComponent {
   @Input() title!: string;
   @Input() strokeColor: string = '1px black';
+  @Input() whereAmI!: string;
 
   constructor(public commonService: CommonService) {
 

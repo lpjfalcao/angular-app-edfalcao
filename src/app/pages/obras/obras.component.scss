@@ -1,16 +1,19 @@
 @use '../../../variables.scss' as var;
 
 .obras-container {
+    background-color: var(--azul-escuro-3);
     position: relative;
-    top: 10vh;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    // top: 10vh;
 
-    @media screen and (max-width: var.$mobile-width) {
-        top: 15vh;
-    }
+    // @media screen and (max-width: var.$mobile-width) {
+    //     top: 15vh;
+    // }
 
-    @media screen and (max-width: var.$mobile-width) and (orientation: landscape) {
-        top: 30vh;
-    }
+    // @media screen and (max-width: var.$mobile-width) and (orientation: landscape) {
+    //     top: 30vh;
+    // }
 
     .galeria-container {
         display: grid;
