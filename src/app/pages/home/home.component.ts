@@ -137,7 +137,7 @@ export class HomeComponent {
   }
 
   carregarEventos(homeData: HomeResponse) {
-    for (const item of homeData.homeEventos) {
+    for (const item of homeData.homeEventos.slice(0,6)) {
       this.eventosViewModel.push({
         id: item.Id,
         descricao: item.Evento.Description.substring(0, 200) + '...',
@@ -196,8 +196,11 @@ export class HomeComponent {
       this.somAtivado = false;
     }
   }
-}
 
+  selecionarEvento(id: number) {
+    this.commonService.goTo(`/eventos/${id}`)
+  }
+}
 
 export class EventoViewModel {
   id!: number;

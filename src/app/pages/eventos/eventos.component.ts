@@ -8,11 +8,22 @@ import { EventoViewModel } from '../home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { EventoContainerViewModel, EventoRootViewModel, EventosService } from './eventos.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'eventos',
   standalone: true,
-  imports: [MessageBoxComponent, BreadcrumbComponent, OwlCarouselComponent, MatButtonModule, MatCardModule, CommonModule],
+  imports: [MessageBoxComponent,
+    BreadcrumbComponent,
+    OwlCarouselComponent,
+    MatButtonModule,
+    MatCardModule,
+    CommonModule,
+    MatProgressSpinnerModule,
+    ErrorMessageComponent],
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.scss'
 })
@@ -85,16 +96,49 @@ export class EventosComponent {
     }
   ];
 
-  constructor(public commonService: CommonService) {
+  eventoContainerViewModel: EventoContainerViewModel[] = [];
+
+  hasError: boolean = false;
+  isLoading: boolean = true;
+
+  constructor(public commonService: CommonService, public eventosService: EventosService) {
   }
 
   ngOnInit() {
-    this.commonService.setHeaderStyles();   
+    this.commonService.setHeaderStyles();
+    this.loadEventos();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     console.log('redimensionado');
     this.commonService.setHeaderStyles();
+  }
+
+  loadEventos(): void {
+    this.eventosService.obterEventos(`${environment.api.baseUrl}/eventos`).subscribe({
+      next: ((eventoRootViewModel: EventoRootViewModel) => {        
+        eventoRootViewModel.eventos.forEach(eventoContainer => {
+          console.log(eventoContainer)
+          this.eventoContainerViewModel.push({
+            Id: eventoContainer.Id,
+            Evento: {
+              Description: eventoContainer.Evento.Description.substring(0, 300) + '...',
+              ImageUrl: eventoContainer.Evento.ImageUrl,
+              Title: eventoContainer.Evento.Title
+            }
+          });
+          this.isLoading = false;
+        });
+      }),
+      error: (err) => {
+        this.hasError = true;
+        this.isLoading = false;
+      }
+    });
+  }
+
+   selecionarEvento(id: number) {
+    this.commonService.goTo(`/eventos/${id}`)
   }
 }

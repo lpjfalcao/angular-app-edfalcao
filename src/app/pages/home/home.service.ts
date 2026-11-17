@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
 import { SobreViewModel } from '../../viewModels/sobre.viewModel';
 import { EventoViewModel } from './home.component';
-import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HomeResponse } from '../../interfaces/responses/home.response';

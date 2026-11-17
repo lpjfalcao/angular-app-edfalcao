@@ -79,7 +79,7 @@
     </section>
 
     <section class="eventos">
-        <h1><span class="u-dourado">Exposições</span></h1>
+        <h1><span class="u-dourado">Eventos</span></h1>
         <div class="row">
             <div class="col-md-12 col-lg-4" *ngFor="let item of eventosViewModel" style="margin-bottom: 40px">
                 <mat-card class="example-card" appearance="outlined">
@@ -91,7 +91,7 @@
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Leia mais</button>
+                        <button mat-button (click)="selecionarEvento(item.id)">Leia mais</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
