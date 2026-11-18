@@ -5,84 +5,124 @@ import { BreadcrumbComponent } from '../../shared/breadcrumb/breadcrumb.componen
 import { CarouselViewModel } from '../../viewModels/carousel.viewModel';
 import { OwlCarouselComponent } from '../../components/carousels/owl-carousel/owl-carousel.component';
 import { EventItem, EventListComponent } from './event-list/event-list.component';
+import { EventoContainerViewModel, EventoRootViewModel, EventosService, FotoEventoContainerViewModel } from '../eventos/eventos.service';
+import { EventoSelecionadoRootViewModel, EventoSelecionadoService } from './evento-selecionado.service';
+import { environment } from '../../../environments/environment';
+import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-evento-selecionado',
   standalone: true,
-  imports: [MessageBoxComponent, BreadcrumbComponent, OwlCarouselComponent, EventListComponent],
+  imports: [MessageBoxComponent, BreadcrumbComponent, OwlCarouselComponent, EventListComponent, ErrorMessageComponent, MatProgressSpinnerModule, CommonModule],
   templateUrl: './evento-selecionado.component.html',
   styleUrl: './evento-selecionado.component.scss'
 })
 export class EventoSelecionadoComponent {
-  carouselItems: CarouselViewModel[] = [
-    {
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      title: 'Lorem ipsum'
-    },
-    {
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      title: 'Lorem ipsum'
-    },
-    {
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      title: 'Lorem ipsum'
-    },
-    {
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      title: 'Lorem ipsum'
-    },
-    {
-      imageUrl: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      title: 'Lorem ipsum'
-    }
-  ];
+  carouselItems: CarouselViewModel[] = [];
 
-  events: EventItem[] = [
-    {
-      id: 1,
-      title: 'Mostra de Arte',
-      category: 'Exposição',
-      location: 'Centro Cultural de Nova Iguaçu',
-      image: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      link: '/eventos/mostra-arte'
-    },
-    {
-      id: 2,
-      title: 'Encontro de Artistas',
-      category: 'Encontro',
-      location: 'Espaço Cultural da Baixada',
-      image: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      link: '/eventos/encontro-artistas'
-    },
-    {
-      id: 3,
-      title: 'Exposição Coletiva',
-      category: 'Exposição',
-      location: 'Galeria Municipal de Belford Roxo',
-      image: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      link: '/eventos/exposicao-coletiva'
-    },
-    {
-      id: 4,
-      title: 'Oficina de Pintura',
-      category: 'Oficina',
-      location: 'Casa de Cultura de São João de Meriti',
-      image: 'https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg',
-      link: '/eventos/oficina-pintura'
-    }
-  ];
+  events: EventItem[] = [];
 
-  constructor(private commonService: CommonService) {
+  eventoSelecionadoViewModel!: EventoContainerViewModel;
+
+  isLoading: boolean = true;
+  hasError: boolean = false;
+  isLoadingAside: boolean = true;
+  hasErrorAside: boolean = false;
+
+  constructor(private commonService: CommonService,
+    private eventoSelecionadoService: EventoSelecionadoService,
+    private eventosService: EventosService,
+    private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    console.log('Eventos:', this.events);
     this.commonService.setHeaderStyles();
+    this.activeRoute.params.subscribe(params => {
+      this.carregarDados(params['id']).subscribe({
+        next: ({ eventos, eventoSelecionado, fotos }) => {
+          this.eventoSelecionadoViewModel = eventoSelecionado.evento;
+
+          eventos.eventos.forEach(evento => {
+            this.events.push({
+              id: evento.Id,
+              image: evento.Evento.ImageUrl,
+              category: 'Exposição',
+              link: `/eventos/${evento.Id}`,
+              location: evento.Evento.Cidade,
+              title: evento.Evento.Title
+            });
+
+            let fotoEventos: CarouselViewModel[] = [];
+            fotos.fotos.forEach((item: FotoEventoContainerViewModel) => {
+              fotoEventos.push({
+                imageUrl: item.ImageUrl
+              });
+            });
+
+            this.carouselItems = fotoEventos;
+
+            setTimeout(() => {
+              this.hasError = false;
+              this.isLoading = false;
+            }, environment.isLoadingTimeout);
+          });
+        },
+      });
+    });
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     console.log('redimensionado');
     this.commonService.setHeaderStyles();
+  }
+
+  obterEventoSelecionado(id: number) {
+    this.eventoSelecionadoService.obterEventoPorId(`${environment.api.baseUrl}/eventos/${id}`).subscribe({
+      next: (eventoRootViewModel) => {
+        this.eventoSelecionadoViewModel = eventoRootViewModel.evento;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.hasError = true;
+        this.isLoading = false;
+      }
+    });
+  }
+
+  obterEventos() {
+    this.eventosService.obterEventos(`${environment.api.baseUrl}/eventos`).subscribe({
+      next: (eventoRootViewModel) => {
+        eventoRootViewModel.eventos.forEach(evento => {
+          debugger;
+          this.events.push({
+            id: evento.Id,
+            image: evento.Evento.ImageUrl,
+            category: 'Exposição',
+            link: `/eventos/${evento.Id}`,
+            location: evento.Evento.Cidade,
+            title: evento.Evento.Title
+          });
+          this.hasErrorAside = false;
+          this.isLoadingAside = false;
+        });
+      },
+      error: (err) => {
+        this.hasErrorAside = true;
+        this.isLoadingAside = false;
+      }
+    })
+  }
+
+  carregarDados(eventoId: number) {
+    return forkJoin({
+      eventos: this.eventosService.obterEventos(`${environment.api.baseUrl}/eventos`),
+      eventoSelecionado: this.eventoSelecionadoService.obterEventoPorId(`${environment.api.baseUrl}/eventos/${eventoId}`),
+      fotos: this.eventosService.obterFotosPorEvento(`${environment.api.baseUrl}/eventos/${eventoId}/fotos`)
+    });
   }
 }

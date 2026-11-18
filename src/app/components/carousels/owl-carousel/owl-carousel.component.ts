@@ -159,17 +159,18 @@ export class OwlCarouselComponent {
     const nextIcon = document.querySelector('.owl-next') as HTMLElement;
 
     carouselItems.forEach(image => {
-      if (!pathname.includes('/eventos')) {
-        image.classList.add('u-height-620');
-      } 
-      else {
+      if (pathname.includes('/eventos')) {
           navs.forEach(nav => {
             nav.style.top = '40%';            
           });
 
           previousIcon.style.left = '-26px';
           previousIcon.style.position = 'relative';
+          image.classList.add('u-height-320');
       }     
+      else {
+        image.classList.add('u-height-620');
+      }      
     });
   }
 

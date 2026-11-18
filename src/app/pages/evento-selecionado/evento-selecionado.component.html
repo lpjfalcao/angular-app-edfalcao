@@ -1,51 +1,18 @@
 <!-- <message-box></message-box> -->
 
-<section class="main">
-    <breadcrumb title="I Expo Baixada" strokeColor="1px white" whereAmI="Home > Eventos > Evento Selecionado"></breadcrumb>
+<section class="main" *ngIf="!isLoading && !hasError">
+    <breadcrumb [title]="eventoSelecionadoViewModel.Evento.Title" strokeColor="1px white" whereAmI="Home > Eventos">
+    </breadcrumb>
 
     <div class="main-grid">
         <div class="main-grid-left">
             <div class="flex-container-imagem">
-                <img src="https://edfalcao-app.s3.us-east-1.amazonaws.com/img/I-Expo-Baixada-7-destaque.jpg" />
+                <img [src]="eventoSelecionadoViewModel.Evento.ImageUrl"  />                               
             </div>
 
             <section class="text-section">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae sem imperdiet, volutpat
-                    mi
-                    id,
-                    sagittis felis. Sed id porttitor elit, ut commodo nibh. Sed vel posuere nibh, eu mattis sapien.
-                    Pellentesque
-                    sit
-                    amet nisl a nisi posuere sollicitudin. Morbi id urna blandit, sodales felis vel, suscipit urna.
-                    Donec
-                    tortor
-                    odio, condimentum facilisis condimentum eget, feugiat et tortor. Quisque lacinia sit amet elit ac
-                    viverra.
-                    Aenean posuere ligula orci, nec mollis ante vestibulum ut. Praesent consectetur libero vitae augue
-                    consequat
-                    rhoncus. Vestibulum vehicula ante ac aliquet hendrerit.
+                <p [innerHTML]="eventoSelecionadoViewModel.Evento.Description">
 
-                    Vivamus a molestie risus. Sed a rhoncus tellus. Cras eu ultricies magna, ut porta dui. Fusce
-                    tincidunt
-                    ultrices
-                    odio eget mollis. Mauris feugiat efficitur faucibus. Proin rhoncus dolor volutpat ex suscipit
-                    cursus.
-                    Fusce
-                    ut
-                    finibus dolor. Pellentesque urna mauris, ultrices et nibh id, cursus pharetra mauris.
-
-                    Sed malesuada, metus vitae auctor pharetra, nulla sem aliquam nulla, nec condimentum libero eros vel
-                    enim.
-                    Etiam
-                    ac molestie ligula, quis dignissim diam. Nunc faucibus bibendum porttitor. Integer ullamcorper
-                    pharetra
-                    lorem,
-                    eu aliquam turpis porttitor in. Donec ipsum quam, blandit quis ipsum nec, porta lobortis metus.
-                    Suspendisse
-                    vehicula ac nunc sit amet ullamcorper. Aliquam at nunc fermentum, bibendum ligula sed, suscipit
-                    dolor.
-                    Vestibulum in mollis nisi.
                 </p>
             </section>
 
@@ -54,12 +21,26 @@
                 <owl-carousel [carouselViewModel]="carouselItems" [quantidadeItemsMobile]="1" [quantidadeItens]="3"
                     [mostrarIndicadores]="true"></owl-carousel>
             </section>
+
+            <!-- <section class="hide-on-small">
+                <h1>Vídeos</h1>
+                <owl-carousel [carouselViewModel]="carouselItems" [quantidadeItemsMobile]="1" [quantidadeItens]="3"
+                    [mostrarIndicadores]="true"></owl-carousel>
+            </section> -->
         </div>
         <div class="main-grid-right">
             <aside class="exhibition-layout__events">
                 <app-event-list [events]="events" title="Agenda de Eventos">
                 </app-event-list>
-            </aside>
+            </aside>            
         </div>
     </div>
 </section>
+
+<div *ngIf="hasError">
+    <error-message></error-message>
+</div>
+
+<div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</div>

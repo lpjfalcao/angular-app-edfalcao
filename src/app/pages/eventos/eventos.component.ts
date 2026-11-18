@@ -125,7 +125,8 @@ export class EventosComponent {
             Evento: {
               Description: eventoContainer.Evento.Description.substring(0, 300) + '...',
               ImageUrl: eventoContainer.Evento.ImageUrl,
-              Title: eventoContainer.Evento.Title
+              Title: eventoContainer.Evento.Title,
+              Cidade: eventoContainer.Evento.Cidade
             }
           });
           this.isLoading = false;

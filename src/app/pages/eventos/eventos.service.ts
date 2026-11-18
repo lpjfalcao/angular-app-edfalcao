@@ -17,6 +17,17 @@ export interface EventoMapViewModel {
   Description: string;
   ImageUrl: string;
   Title: string;
+  Cidade: string;
+}
+
+export interface FotoEventoRootViewModel {
+  fotos: FotoEventoContainerViewModel[];
+}
+
+export interface FotoEventoContainerViewModel {
+  EventoId: number;
+  FotoId: string;
+  ImageUrl: string;
 }
 
 @Injectable({
@@ -29,4 +40,8 @@ export class EventosService {
   obterEventos(url: string): Observable<EventoRootViewModel> {
     return this.httpClient.get<EventoRootViewModel>(url);
   }  
+
+  obterFotosPorEvento(url: string): Observable<FotoEventoRootViewModel> {
+    return this.httpClient.get<FotoEventoRootViewModel>(url);
+  }
 }
