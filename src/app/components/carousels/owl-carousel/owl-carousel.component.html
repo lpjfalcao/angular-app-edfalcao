@@ -2,7 +2,12 @@
     <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let item of carouselViewModel">
             <ng-template class="slide waves-effect waves-light" carouselSlide>
-                <img [src]="item.imageUrl">
+                <img [src]="item.imageUrl" (click)="onClickImagem(item)">
             </ng-template>
         </ng-container>
     </owl-carousel-o>
+
+    <div *ngIf="temLightbox">
+        <lightbox [imagens]="lightboxImagemViewModel" [imagemSelecionada]="imagemSelecionada"
+                    (onPrevious)="previous($event)" (onNext)="next($event)"></lightbox>
+    </div>

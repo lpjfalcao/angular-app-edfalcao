@@ -13,6 +13,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin, Observable } from 'rxjs';
+import { LightboxImageViewModel } from '../../viewModels/lightbox-image.viewModel';
+import { LightboxService } from '../../components/lightbox/lightbox.service';
 
 @Component({
   selector: 'app-evento-selecionado',
@@ -23,11 +25,10 @@ import { forkJoin, Observable } from 'rxjs';
 })
 export class EventoSelecionadoComponent {
   carouselItems: CarouselViewModel[] = [];
-
+  lightboxImagemViewModel: LightboxImageViewModel[] = [];
+  imagemSelecionada!: LightboxImageViewModel;
   events: EventItem[] = [];
-
   eventoSelecionadoViewModel!: EventoContainerViewModel;
-
   isLoading: boolean = true;
   hasError: boolean = false;
   isLoadingAside: boolean = true;
@@ -36,7 +37,8 @@ export class EventoSelecionadoComponent {
   constructor(private commonService: CommonService,
     private eventoSelecionadoService: EventoSelecionadoService,
     private eventosService: EventosService,
-    private activeRoute: ActivatedRoute) {
+    private activeRoute: ActivatedRoute,
+    private lightboxService: LightboxService) {
   }
 
   ngOnInit() {
@@ -57,13 +59,23 @@ export class EventoSelecionadoComponent {
             });
 
             let fotoEventos: CarouselViewModel[] = [];
+            let fotoEventoId = 0;
+            let lightboxFotos: LightboxImageViewModel[] = [];
+
             fotos.fotos.forEach((item: FotoEventoContainerViewModel) => {
+              const fotoId = parseInt(item.FotoId.split('#')[1]);
               fotoEventos.push({
+                imageUrl: item.ImageUrl,
+                id: fotoId
+              });
+              lightboxFotos.push({
+                id: fotoId,
                 imageUrl: item.ImageUrl
               });
             });
 
             this.carouselItems = fotoEventos;
+            this.lightboxImagemViewModel = lightboxFotos;
 
             setTimeout(() => {
               this.hasError = false;

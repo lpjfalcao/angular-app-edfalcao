@@ -7,7 +7,7 @@
     <div class="main-grid">
         <div class="main-grid-left">
             <div class="flex-container-imagem">
-                <img [src]="eventoSelecionadoViewModel.Evento.ImageUrl"  />                               
+                <img [src]="eventoSelecionadoViewModel.Evento.ImageUrl" />
             </div>
 
             <section class="text-section">
@@ -16,10 +16,10 @@
                 </p>
             </section>
 
-            <section class="hide-on-small">
+            <section class="hide-on-small" *ngIf="carouselItems.length > 0">
                 <h1>Fotos</h1>
                 <owl-carousel [carouselViewModel]="carouselItems" [quantidadeItemsMobile]="1" [quantidadeItens]="3"
-                    [mostrarIndicadores]="true"></owl-carousel>
+                    [mostrarIndicadores]="true" [lightboxImagemViewModel]="lightboxImagemViewModel" [temLightbox]="true"></owl-carousel>                
             </section>
 
             <!-- <section class="hide-on-small">
@@ -32,7 +32,7 @@
             <aside class="exhibition-layout__events">
                 <app-event-list [events]="events" title="Agenda de Eventos">
                 </app-event-list>
-            </aside>            
+            </aside>
         </div>
     </div>
 </section>
